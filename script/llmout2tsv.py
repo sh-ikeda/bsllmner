@@ -22,6 +22,10 @@ def parse_llmout(llmout):
         if llmout_json_strs:
             try:
                 llmout_json = json.loads(llmout_json_strs[-1])
+                # In minor cases, LLM might include null values in output JSON.
+                keys_to_delete = [k for k, v in llmout_json.items() if v is None]
+                for key in keys_to_delete:
+                    del llmout_json[key]
             except json.decoder.JSONDecodeError:
                 print(f"Warning: JSON malformed: {bs_id}: {llmout_json_strs[-1]}", file=sys.stderr)
         llmout_dict["characteristics"] = llmout_json
