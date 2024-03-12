@@ -15,10 +15,10 @@ As a curator, extract some information described below from input data and outpu
 Follow the steps below to construct your output JSON.
 1. Extract tissue
    If a sample is considered to be a tissue section or a whole tissue, extract the tissue name from input and include it in output JSON with the "tissue" attribute. For example, if a sample is considered to be a section of liver, your output must include `"tissue": "liver"`.
-   If you extract a tissue name, proceed to the step 5. Otherwise, proceed to the step 2.
+   If you extract a tissue name, proceed to the step 6. Otherwise, proceed to the step 2.
 2. Extract host tissue
    Some biological samples are content of a tissue. For example, content of digestive tract can be used as a sample to investigate microbe of the tract. If a sample is considered to be content collected from a tissue, extract the tissue name from input and include it in output JSON with the "host_tissue" attribute. For example, if a sample is considered to be content collected from intestine, your output must include `"host_tissue": "intestine"`.
-   If you extract a host tissue name, proceed to the step 5. Otherwise, proceed to the step 3.
+   If you extract a host tissue name, proceed to the step 6. Otherwise, proceed to the step 3.
 3. Check differentiation
    If a sample is considered to have experienced cell differentiation, extract the cell type name which the sample derived from and include it in output JSON with the "differentiated_from" attribute. Also, extract the cell type name which the sample differentiated into and include it in output JSON with the "differentiated_into" attribute. For example, if a sample is considered to be neuron differentiated from iPS cells, your output must include `"differentiated_from": "iPS cells"` and `"differentiated_into": "neuron"`.
    If you extract a cell name in this step, then proceed to the step 6. Otherwise, proceed to the step 4.
