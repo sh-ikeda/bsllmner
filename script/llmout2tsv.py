@@ -33,32 +33,42 @@ def parse_llmout(llmout):
     return llmout_dicts
 
 
-def print_llmout_tsv(llmout_dicts):
+def print_llmout_tsv(llmout_dicts, as_table):
     sp_keys = ["tissue", "host_tissue", "differentiated_from",
                "differentiated_into", "cell_type", "cell_line", "disease"]
-    print("BioSample ID", "\t".join(sp_keys), "others", sep="\t")
+    if as_table:
+        print("BioSample ID", "\t".join(sp_keys), "others", sep="\t")
     for d in llmout_dicts:
         newline = []
-        newline.append(d["accession"])
+        bs_id = d["accession"]
+        newline.append(bs_id)
         for spk in sp_keys:
             newline.append(d["characteristics"].get(spk, ""))
         others = ""
         for k, v in d["characteristics"].items():
             if k not in sp_keys:
                 others += f'{k}: {v}, '
-        newline.append(others.strip(", "))
-        print("\t".join(newline))
+        others = others.strip(", ")
+        newline.append(others)
+        if as_table:
+            print("\t".join(newline))
+        else:
+            for i in range(0, len(sp_keys)):
+                print(bs_id, sp_keys[i], newline[i+1], sep="\t")
+            print(bs_id, "others", others, sep="\t")
     return
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('input_llmout_filename', help='LLM output tsv file')
+    parser.add_argument('-t', '--table', action='store_true')
     args = parser.parse_args()
+    as_table = args.table
 
     input_llmout = load_tsv(args.input_llmout_filename)
     llmout_dicts = parse_llmout(input_llmout)
-    print_llmout_tsv(llmout_dicts)
+    print_llmout_tsv(llmout_dicts, as_table)
     return
 
 
