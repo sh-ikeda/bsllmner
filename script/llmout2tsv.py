@@ -34,7 +34,8 @@ def parse_llmout(llmout):
 
 
 def print_llmout_tsv(llmout_dicts):
-    sp_keys = ["tissue", "host_tissue", "cell_type", "cell_line", "disease"]
+    sp_keys = ["tissue", "host_tissue", "differentiated_from",
+               "differentiated_into", "cell_type", "cell_line", "disease"]
     print("BioSample ID", "\t".join(sp_keys), "others", sep="\t")
     for d in llmout_dicts:
         newline = []
