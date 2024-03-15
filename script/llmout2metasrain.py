@@ -2,10 +2,12 @@ import json
 import argparse
 import re
 
+
 def load_json(json_filename):
     with open(json_filename, "r") as f:
         input_json = json.load(f)
     return input_json
+
 
 def load_tsv(tsv_filename):
     tsv = []
@@ -13,6 +15,7 @@ def load_tsv(tsv_filename):
         for line in f:
             tsv.append(line.split("\t"))
     return tsv
+
 
 def parse_llmout(llmout):
     llmout_dicts = []
@@ -27,6 +30,7 @@ def parse_llmout(llmout):
         llmout_dicts.append(llmout_dict)
     return llmout_dicts
 
+
 def repl_characteristics(input_json, llmout_dicts):
     replaced = []
     id2attr = {}
@@ -40,6 +44,7 @@ def repl_characteristics(input_json, llmout_dicts):
         id2attr[d["accession"]]["characteristics"] = new_characteristics
         replaced.append(id2attr[d["accession"]])
     return replaced
+
 
 def main():
     parser = argparse.ArgumentParser()
