@@ -1,0 +1,62 @@
+{
+  "biosample": [
+    {
+      "accession": "SAMEA14090969",
+      "age": "70",
+      "broker name": "ArrayExpress",
+      "cell_type": "memory B cell",
+      "common name": "human",
+      "description": "Protocols: All spleen in this study were collected from organ donors who died from stroke or head trauma. None of them had lymphoma or autoimmune disease. Immediately after splenectomy, mononuclear cells were isolated from crushed pieces of splenic tissue by ficoll density-gradient centrifugation and stored in liquid nitrogen. After thawing, mononuclear cells were counted and stained with antibodies directed against surface markers. CD21hiCD20hi (CD21high IgG+ memory B cell) and CD21intCD20int memory B cell subsets (CD21int IgG+ memory B cell) were then bulk FACS-sorted (AriaIII) from gated IgG+ switched memory B cells (IgG+CD27+CD20+IgD-) in parallel with naives B cells (CD20+CD38lowCD24intCD27-IgD+CD3-CD14-CD16+). Assay for Transposase-Accessible Chromatin with high-throughput sequencing (ATAC-seq) was performed on 50000 cells of each sorted population according to published methods (Buenrostro, Nature Methods, 2013, PMID: 24097267). Libraries were amplified and prepared according to published methods (Buenrostro, Nature Methods, 2013, PMID: 24097267).",
+      "developmental stage": "adult",
+      "disease": "normal",
+      "immunophenotype": "CD21high IgG+",
+      "individual": "HD38",
+      "organism": "Homo sapiens",
+      "organism part": "spleen",
+      "sex": "female",
+      "title": "Sample 1"
+    },
+    {
+      "accession": "SAMEA103885158",
+      "age": "40-44",
+      "cell type": "iPSC derived cell line",
+      "description": "Macrophages derived from induced pluripotent stem cell HPSI1113i-bima_1 day 35 after start of differentiation, treated with interferon gamma.",
+      "differentiation start date": "2014/11/07",
+      "disease state": "normal",
+      "ethnicity": "White - White British",
+      "material": "cell line",
+      "organism": "Homo sapiens",
+      "sampling date": "2014/12/12",
+      "sex": "male",
+      "target cell type": "macrophage",
+      "time point": "day 35",
+      "treatment": "interferon gamma"
+    },
+    {
+      "accession": "SAMN32011038",
+      "Sex": "male",
+      "cell type": "oligodendrocyte lineage cells (NeuN-SOX10+)",
+      "chip antibody": "H3K27ac (Active Motif #39133)",
+      "disease": "C9-ALS",
+      "donor id": "A10",
+      "genotype": "C9ORF72+",
+      "organism": "Homo sapiens",
+      "source_name": "motor cortex",
+      "tissue": "motor cortex",
+      "title": "ChIP-seq H3K27ac, C9-ALS donor A10, Motor cortex, Oligodendrocyte lineage cells"
+    },
+    {
+      "accession": "SAMD00004141",
+      "organism": "Homo sapiens",
+      "sample comment": "Hela cells which were cultured in Dulbecco's modified Eagle's medium (DMEM) supplemented with 10% fetal bovine serum under a humidified atmosphere with 5% CO2 at 37Â°C.",
+      "sample name": "DRS000576",
+      "title": "Hela_Ser2P/Ser5P/Ser7P-RNAP2_ChIPSeq"
+    }
+  ],
+  "answers": [
+    {"cell_type": "memory B cell", "tissue": "spleen"},
+    {"cell_type": "macrophage"},
+    {"cell_type": "oligodendrocyte", "tissue": "motor cortex", "disease": "C9-ALS"},
+    {"cell_line": "Hela"}
+  ]
+}

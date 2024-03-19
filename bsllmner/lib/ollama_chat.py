@@ -1,12 +1,13 @@
 import ollama
 import sys
 import json
-import datetime
-import argparse
 import re
+from prompt import load_prompt
 
 
 def chat_ollama(input_json, model, prompt_index, verbose=False, test=False):
+    prompts = load_prompt.parse_md()
+    first_prompt = prompts[prompt_index]
     if verbose:
         print(first_prompt, file=sys.stderr)
 
@@ -52,36 +53,7 @@ def chat_ollama(input_json, model, prompt_index, verbose=False, test=False):
     return
 
 
-def load_json(json_filename):
-    with open(json_filename, "r") as f:
-        input_json = json.load(f)
-    return input_json
-
-
-def print_time():
-    ct = datetime.datetime.now()
-    print(f"[{ct}]\n", file=sys.stderr)
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('input_filename', help='BioSample JSON file')
-    parser.add_argument('-v', '--verbose', action='store_true')
-    parser.add_argument('-t', '--test', action='store_true')
-    parser.add_argument('-m', '--model')
-    parser.add_argument('-p', '--prompt')
-    args = parser.parse_args()
-
-    input_json = load_json(args.input_filename)
-    verbose = args.verbose
-    test = args.test
-    model = args.model
-    prompt_index = args.prompt
-    print_time()
-    chat_ollama(input_json, model, prompt_index, verbose, test)
-    print_time()
-    return
-
-
 if __name__ == "__main__":
-    main()
+    prompts = load_prompt.parse_md()
+    first_prompt = prompts["1"]
+    print(first_prompt, file=sys.stderr)
