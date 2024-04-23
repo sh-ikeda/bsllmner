@@ -2,7 +2,7 @@ import ollama
 import sys
 import json
 import re
-from prompt import load_prompt
+from ..prompt import load_prompt
 
 
 def chat_ollama(input_json, model, prompt_index, verbose=False, test=False):

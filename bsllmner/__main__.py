@@ -1,6 +1,6 @@
 import argparse
-from lib import util
-from lib import ollama_chat
+from .lib import util
+from .lib import ollama_chat
 
 
 def main():
