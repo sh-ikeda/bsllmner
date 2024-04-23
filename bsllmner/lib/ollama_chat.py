@@ -5,9 +5,13 @@ import re
 from ..prompt import load_prompt
 
 
-def chat_ollama(input_json, model, prompt_index, verbose=False, test=False):
-    prompts = load_prompt.parse_md()
-    first_prompt = prompts[prompt_index]
+def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, test=False):
+    if prompt_file:
+        with open(prompt_file) as f:
+            first_prompt = f.read()
+    else:
+        prompts = load_prompt.parse_md()
+        first_prompt = prompts[prompt_index]
     if verbose:
         print(first_prompt, file=sys.stderr)
 

@@ -9,16 +9,18 @@ def main():
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-t', '--test', action='store_true')
     parser.add_argument('-m', '--model')
-    parser.add_argument('-p', '--prompt')
+    parser.add_argument('-i', '--prompt_index')
+    parser.add_argument('-p', '--prompt_file')
     args = parser.parse_args()
 
     input_json = util.load_json(args.input_filename)
     verbose = args.verbose
     test = args.test
     model = args.model
-    prompt_index = args.prompt
+    prompt_index = args.prompt_index
+    prompt_file = args.prompt_file
     util.print_time()
-    ollama_chat.chat_ollama(input_json, model, prompt_index, verbose, test)
+    ollama_chat.chat_ollama(input_json, model, prompt_index, prompt_file, verbose, test)
     util.print_time()
     return
 
