@@ -31,7 +31,6 @@ I will input json formatted metadata of a sample for a biological experiment. If
 
 Your output must be JSON format, like {"cell_line": "NAME"} .
 "NAME" is just a place holder. Replace this with a string you extract.
-Your output must NOT contain any other text.
 
 When input sample data is not of a cell line, you are not supposed to extract any text from input.
 If you can not find a cell line name in input, your output is like {"cell_line": "None"} .
@@ -41,7 +40,6 @@ Are you ready?
 I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a tissue section or a whole tissue, extract the tissue name from the input data.
 Your output must be JSON format, like {"tissue": "NAME"} .
 "NAME" is just a place holder. Replace this with a string you extract.
-Your output must NOT contain any other text.
 For example, if a sample is considered to be a section of liver, your output is {"tissue": "liver"}.
 When input sample data is not considered to be a tissue section or a whole tissue, you are not supposed to extract any text from input. In such a case, your output is like {"tissue": "None"} .
 Are you ready?
