@@ -11,4 +11,4 @@ def load_json(json_filename):
 
 def print_time(message=""):
     ct = datetime.datetime.now()
-    print(f"[{ct}] {message}\n", file=sys.stderr)
+    print(f"[{ct}] {message}", file=sys.stderr)
