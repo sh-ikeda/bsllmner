@@ -25,11 +25,12 @@ def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, tes
             {"role": "user", "content": first_prompt},
             {"role": "assistant", "content": "Yes."},
         ]
+        options = {"temperature": 0}
         # for j in range(0, len(examples)):
         #     messages.append({"role": "user", "content": examples[j]})
         #     messages.append({"role": "assistant", "content": answers[j]})
         messages.append({"role": "user", "content": "Think step by step for the data below.\n" + input_bs})
-        response = ollama.chat(model=model, messages=messages)
+        response = ollama.chat(model=model, messages=messages, options=options)
         res_text = response["message"]["content"]
         # messages.append(response["message"])
 
