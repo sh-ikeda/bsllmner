@@ -37,7 +37,10 @@ def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, tes
         # confirm = ""
         if "{" in res_text:
             #res_text_json = re.search(r"\{[^}]*\}", res_text).group()
-            res_text_json = re.findall(r"\{[^}]*\}", res_text)[-1]
+            try:
+                res_text_json = re.findall(r"\{[^}]*\}", res_text)[-1]
+            except IndexError:
+                res_text_json = '{"error": "IndexError"}'
         # if len(res_text_json) > 0:
         #     cell_line = re.findall(r'"[^"]*"', res_text_json)[1]
         #     if cell_line != "\"None\"":
