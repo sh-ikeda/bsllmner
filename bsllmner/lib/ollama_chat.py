@@ -3,6 +3,7 @@ import sys
 import json
 import re
 from ..prompt import load_prompt
+from .util import print_time
 
 
 def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, test=False):
@@ -12,14 +13,13 @@ def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, tes
     else:
         prompts = load_prompt.parse_md()
         first_prompt = prompts[prompt_index]
-    if verbose:
-        print(first_prompt, file=sys.stderr)
 
     to = 10 if test else len(input_json)
     for i in range(0, to):
         input_bs = json.dumps(input_json[i])
-        if verbose:
-            print(input_bs, "\n", file=sys.stderr)
+        if i%10==0 and verbose and not test:
+            # print(input_bs, "\n", file=sys.stderr)
+            print_time(str(i))
 
         messages = [
             {"role": "user", "content": first_prompt},
