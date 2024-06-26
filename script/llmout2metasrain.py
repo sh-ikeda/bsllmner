@@ -26,6 +26,11 @@ def parse_llmout(llmout):
         llmout_json = {}
         if llmout_json_strs:
             llmout_json = json.loads(llmout_json_strs[-1])
+        # In rare case, LLM extracts multiple strings and outputs as an array.
+        # In such case, this program converts the array into a comma separated string.
+        for k in llmout_json:
+            if isinstance(llmout_json[k], list):
+                llmout_json[k] = ", ".join(llmout_json[k])
         llmout_dict["characteristics"] = llmout_json
         llmout_dicts.append(llmout_dict)
     return llmout_dicts
