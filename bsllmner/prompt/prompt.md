@@ -43,3 +43,12 @@ Your output must be JSON format, like {"tissue": "NAME"} .
 For example, if a sample is considered to be a section of liver, your output is {"tissue": "liver"}.
 When input sample data is not considered to be a tissue section or a whole tissue, you are not supposed to extract any text from input. In such a case, your output is like {"tissue": "None"} .
 Are you ready?
+
+# 4
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out, extract the gene name from the input data.
+
+Your output must be JSON format, like {"knockout": "NAME"} .
+"NAME" is just a place holder. Replace this with the string you extract.
+
+When input sample data is not considered to be had a gene knocked-out, your output must be like {"knockout": "None"} .
+Are you ready?
