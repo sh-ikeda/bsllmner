@@ -9,4 +9,6 @@ RUN mkdir /app
 COPY . /app/bsllmner/
 WORKDIR /app/bsllmner/
 
-CMD ["python3", "-m", "bsllmner"]
+ENTRYPOINT ["/bin/ollama"]
+CMD ["serve"]
+
