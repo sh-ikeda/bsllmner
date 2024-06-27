@@ -25,7 +25,7 @@ def chat_ollama(input_json, model, prompt_indices, prompt_types, prompt_file, ve
         for j in range(0, len(prompt_indices)):
             messages.append({
                 "role": prompt_types[j],
-                "content": prompt_indices[j]
+                "content": prompts[prompt_indices[j]]
             })
         messages.append({"role": "user", "content": "\n" + input_bs})
         # messages = [
