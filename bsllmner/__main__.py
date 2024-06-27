@@ -10,7 +10,7 @@ def main():
     parser.add_argument('-t', '--test', action='store_true')
     parser.add_argument('-m', '--model')
     parser.add_argument('-i', '--prompt_indices')
-    parser.add_argument('-i', '--prompt_types')
+    parser.add_argument('-y', '--prompt_types')
     parser.add_argument('-p', '--prompt_file')
     args = parser.parse_args()
 
