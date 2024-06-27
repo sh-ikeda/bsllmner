@@ -45,10 +45,22 @@ When input sample data is not considered to be a tissue section or a whole tissu
 Are you ready?
 
 # 4
-I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out, extract the gene name from the input data.
+A gene knockout (KO), also known as a gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
 
-Your output must be JSON format, like {"knockout": "NAME"} .
+Meanwhile, a gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out or knocked-down, extract the gene name from the input data.
+
+Your output must be JSON format, like {"knockout": "NAME", "knockdown": "NAME"} .
 "NAME" is just a place holder. Replace this with the string you extract.
-
-When input sample data is not considered to be had a gene knocked-out, your output must be like {"knockout": "None"} .
+When input sample data is not considered to be had a gene knocked-out or knocked-down, the value of "knockout" or "knockdown" of your output JSON must be "None".
 Are you ready?
+
+# 5
+You are a smart curator of biological data
+
+# 6
+I'm ready! Please provide the JSON formatted metadata of the sample for the biological experiment.
+
+# 7
+Then think step by step for the data below.

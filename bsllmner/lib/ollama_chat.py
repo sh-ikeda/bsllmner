@@ -6,13 +6,13 @@ from ..prompt import load_prompt
 from .util import print_time
 
 
-def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, test=False):
+def chat_ollama(input_json, model, prompt_indices, prompt_types, prompt_file, verbose=False, test=False):
     if prompt_file:
         with open(prompt_file) as f:
             first_prompt = f.read()
     else:
         prompts = load_prompt.parse_md()
-        first_prompt = prompts[prompt_index]
+        first_prompt = prompts[prompt_indices[0]]
 
     to = 10 if test else len(input_json)
     for i in range(0, to):
@@ -21,15 +21,22 @@ def chat_ollama(input_json, model, prompt_index, prompt_file, verbose=False, tes
             # print(input_bs, "\n", file=sys.stderr)
             print_time(str(i))
 
-        messages = [
-            {"role": "user", "content": first_prompt},
-            {"role": "assistant", "content": "Yes."},
-        ]
+        messages = []
+        for j in range(0, len(prompt_indices)):
+            messages.append({
+                "role": prompt_types[j],
+                "content": prompt_indices[j]
+            })
+        messages.append({"role": "user", "content": "\n" + input_bs})
+        # messages = [
+        #     {"role": "user", "content": first_prompt},
+        #     {"role": "assistant", "content": "I'm ready! Please provide the JSON formatted metadata of the sample for the biological experiment."},
+        # ]
         options = {"temperature": 0}
         # for j in range(0, len(examples)):
         #     messages.append({"role": "user", "content": examples[j]})
         #     messages.append({"role": "assistant", "content": answers[j]})
-        messages.append({"role": "user", "content": "Think step by step for the data below.\n" + input_bs})
+        # messages.append({"role": "user", "content": "Think step by step for the data below.\n" + input_bs})
         response = ollama.chat(model=model, messages=messages, options=options)
         res_text = response["message"]["content"]
         # messages.append(response["message"])
