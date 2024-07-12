@@ -6,7 +6,7 @@ from ..prompt import load_prompt
 from .util import print_time
 
 
-def chat_ollama(input_json, model, prompt_indices, prompt_types, prompt_file, verbose=False, test=False):
+def chat_ollama(input_json, model, prompt_indices, prompt_file, verbose=False, test=False):
     if prompt_file:
         with open(prompt_file) as f:
             first_prompt = f.read()
@@ -24,8 +24,8 @@ def chat_ollama(input_json, model, prompt_indices, prompt_types, prompt_file, ve
         messages = []
         for j in range(0, len(prompt_indices)):
             messages.append({
-                "role": prompt_types[j],
-                "content": prompts[prompt_indices[j]]
+                "role": prompts[prompt_indices[j]]["role"],
+                "content": prompts[prompt_indices[j]]["text"]
             })
         messages.append({"role": "user", "content": "\n" + input_bs})
         # messages = [

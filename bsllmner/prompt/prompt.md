@@ -1,4 +1,5 @@
 # 1
+user
 You are a smart curator of biological data.
 You are given JSON-formatted data that describe a sample used in a biological experiment.
 These data are written by scientists who conducted the experiment. Since they are not as familiar with data structurization as you, these might be not structurized well.
@@ -25,6 +26,7 @@ Follow the steps below to construct your output JSON.
 
 Are you ready?
 # 2
+user
 A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
 
 I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
@@ -37,6 +39,7 @@ If you can not find a cell line name in input, your output is like {"cell_line":
 Are you ready?
 
 # 3
+user
 I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a tissue section or a whole tissue, extract the tissue name from the input data.
 Your output must be JSON format, like {"tissue": "NAME"} .
 "NAME" is just a place holder. Replace this with a string you extract.
@@ -45,6 +48,7 @@ When input sample data is not considered to be a tissue section or a whole tissu
 Are you ready?
 
 # 4
+user
 A gene knockout (KO), also known as a gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
 
 Meanwhile, a gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
@@ -57,10 +61,13 @@ When input sample data is not considered to be had a gene knocked-out or knocked
 Are you ready?
 
 # 5
+system
 You are a smart curator of biological data
 
 # 6
+assistant
 I'm ready! Please provide the JSON formatted metadata of the sample for the biological experiment.
 
 # 7
+user
 Then think step by step for the data below.

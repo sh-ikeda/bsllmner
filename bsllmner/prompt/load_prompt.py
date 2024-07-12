@@ -11,12 +11,18 @@ def parse_md():
     dic = {}
     with open(dirname + "/" + fname, "r") as f:
         current_id = ""
+        is_first_line = False
         for line in f:
             if line[0] == "#":
                 current_id = re.sub("^# ", "", line).strip()
-                dic[current_id] = ""
+                dic[current_id] = {}
+                dic[current_id]["text"] = ""
+                is_first_line = True
+            elif is_first_line:
+                dic[current_id]["role"] = line.strip()
+                is_first_line = False
             elif current_id != "":
-                dic[current_id] += line
+                dic[current_id]["text"] += line
     return dic
 
 
