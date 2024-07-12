@@ -6,13 +6,8 @@ from ..prompt import load_prompt
 from .util import print_time
 
 
-def chat_ollama(input_json, model, prompt_indices, prompt_file, verbose=False, test=False):
-    if prompt_file:
-        with open(prompt_file) as f:
-            first_prompt = f.read()
-    else:
-        prompts = load_prompt.parse_md()
-        first_prompt = prompts[prompt_indices[0]]
+def chat_ollama(input_json, model, prompt_indices, verbose=False, test=False):
+    prompts = load_prompt.parse_md()
 
     to = 10 if test else len(input_json)
     for i in range(0, to):
