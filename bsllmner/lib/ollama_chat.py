@@ -18,7 +18,6 @@ def chat_ollama(input_json, model, prompt_indices, prompt_file, verbose=False, t
     for i in range(0, to):
         input_bs = json.dumps(input_json[i])
         if i%10==0 and verbose and not test:
-            # print(input_bs, "\n", file=sys.stderr)
             print_time(str(i))
 
         messages = []
@@ -28,41 +27,18 @@ def chat_ollama(input_json, model, prompt_indices, prompt_file, verbose=False, t
                 "content": prompts[prompt_indices[j]]["text"]
             })
         messages.append({"role": "user", "content": "\n" + input_bs})
-        # messages = [
-        #     {"role": "user", "content": first_prompt},
-        #     {"role": "assistant", "content": "I'm ready! Please provide the JSON formatted metadata of the sample for the biological experiment."},
-        # ]
         options = {"temperature": 0}
-        # for j in range(0, len(examples)):
-        #     messages.append({"role": "user", "content": examples[j]})
-        #     messages.append({"role": "assistant", "content": answers[j]})
-        # messages.append({"role": "user", "content": "Think step by step for the data below.\n" + input_bs})
         response = ollama.chat(model=model, messages=messages, options=options)
         res_text = response["message"]["content"]
-        # messages.append(response["message"])
 
         res_text_json = ""
-        # confirm = ""
         if "{" in res_text:
-            #res_text_json = re.search(r"\{[^}]*\}", res_text).group()
             try:
                 res_text_json = re.findall(r"\{[^}]*\}", res_text)[-1]
             except IndexError:
                 res_text_json = '{"error": "IndexError"}'
-        # if len(res_text_json) > 0:
-        #     cell_line = re.findall(r'"[^"]*"', res_text_json)[1]
-        #     if cell_line != "\"None\"":
-        #         prompt = f"You are a bot just answers to my question with 'yes' or 'no'. I will input JSON formatted data that is metadata of a sample for a biological experiment. Answer whether {cell_line} is differentiated or transdifferentiated into another type of cells. Your answer must be just one word, 'yes' or 'no'. Are you ready?"
-        #         messages = [
-        #             {"role": "user", "content": prompt},
-        #             {"role": "assistant", "content": "yes"},
-        #             {"role": "user", "content": input_bs},
-        #         ]
-        #         response = ollama.chat(model=model, messages=messages)
-        #         confirm = response["message"]["content"].replace("\n", " ")
 
         bs_id = input_json[i]["accession"]
-        # print(bs_id, res_text.replace("\n", " "), confirm, sep="\t")
         print(bs_id, res_text_json.replace("\n",""), res_text.replace("\n", " "), sep="\t")
 
     return
