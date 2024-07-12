@@ -18,7 +18,7 @@ def main():
     model = args.model
     prompt_indices = args.prompt_indices.split(",")
     util.print_time()
-    ollama_chat.chat_ollama(input_json, model, prompt_indices, verbose, test)
+    ollama_chat.ollma_ner(input_json, model, prompt_indices, verbose, test)
     util.print_time()
     return
 

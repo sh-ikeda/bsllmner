@@ -6,7 +6,7 @@ from ..prompt import load_prompt
 from .util import print_time
 
 
-def chat_ollama(input_json, model, prompt_indices, verbose=False, test=False):
+def ollama_ner(input_json, model, prompt_indices, verbose=False, test=False):
     prompts = load_prompt.parse_md()
 
     to = 10 if test else len(input_json)
