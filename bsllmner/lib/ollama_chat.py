@@ -3,6 +3,7 @@ import sys
 import json
 import re
 import os
+import copy
 from collections import defaultdict
 from ..prompt import load_prompt
 from .util import print_time
@@ -148,7 +149,7 @@ class BsReview(BsLlmProcess):
             bs_id = bs["accession"]
             if bs_id not in self.bs_cvcl_cands:
                 continue
-            messages = base_messages
+            messages = copy.deepcopy(base_messages)
 
             ## Output from LLM in extraction
             messages.insert(-1, {
@@ -161,7 +162,7 @@ class BsReview(BsLlmProcess):
 
             ## Candidate evaluation
             ### Replace "{{cell_line}}" in the prompt with this cell line name
-            messages[-1]["content"] = messages[-1]["content"].replace("{{cell_line}}", "\""+self.llmner_dict[bs_id]["extracted_json"]["cell_line"]+"\"")
+            messages[-1]["content"] = messages[-1]["content"].replace("{{cell_line}}", "\""+str(self.llmner_dict[bs_id]["extracted_json"]["cell_line"])+"\"")
             ### Input of candidate terms
             for cvcl_cand in self.bs_cvcl_cands[bs_id]:
                 cvcl_id = cvcl_cand["id"].replace(":", "_")
