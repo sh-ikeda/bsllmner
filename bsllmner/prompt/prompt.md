@@ -71,3 +71,8 @@ I'm ready! Please provide the JSON formatted metadata of the sample for the biol
 # 7
 user
 Then think step by step for the data below.
+
+# 8
+user
+I searched an ontology for the cell line, {{cell_line}}.
+I have found multiple terms which may represent the sample. Below are the annotations for each entry. For each entry, please show your confidence score about to what extent the entry represents the sample.
