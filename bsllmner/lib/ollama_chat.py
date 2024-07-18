@@ -143,7 +143,7 @@ class BsReview(BsLlmProcess):
 
     def review(self, verbose=False, test=False):
         base_messages = self.construct_messages()
-        print_time("Total samples to review: ", len(self.bs_cvcl_cands), file=sys.stderr)
+        print_time("Total samples to review: ", len(self.bs_cvcl_cands))
         for bs in self.bs_json:
             bs_id = bs["accession"]
             if bs_id not in self.bs_cvcl_cands:
