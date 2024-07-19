@@ -137,9 +137,12 @@ class BsReview(BsLlmProcess):
             reformatted_dict[syn_type].append(syn["name"])
         reformatted_dict["xrefs"] = []
         for i in range(0, len(cvcl["xrefs"])):
+            if cvcl["xrefs"][i].startswith("NCBI_TaxID:"):
+                continue
             reformatted_dict["xrefs"].append(cvcl["xrefs"][i])
             if cvcl["xrefs_comments"][i] != "":
                 reformatted_dict["xrefs"][-1] += " ! " + cvcl["xrefs_comments"][i]
+        reformatted_dict["subsets"] = cvcl["subsets"]
         return reformatted_dict
 
     def review(self, verbose=False, test=False):
