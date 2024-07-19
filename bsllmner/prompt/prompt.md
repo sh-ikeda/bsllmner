@@ -75,4 +75,4 @@ Then think step by step for the data below.
 # 8
 user
 I searched an ontology for the cell line, {{cell_line}}.
-I have found multiple terms which may represent the sample. Below are the annotations for each entry. For each entry, please show your confidence score about to what extent the entry represents the sample.
+I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample.
