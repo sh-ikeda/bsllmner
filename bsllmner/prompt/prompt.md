@@ -74,5 +74,7 @@ Then think step by step for the data below.
 
 # 8
 user
-I searched an ontology for the cell line, {{cell_line}}.
-I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the extent of string match between "{{cell_line}}" and each term's name or synonyms, disease information written in xrefs, properties written in "subsets" attribute, etc, and give a higher score to the term more likely to represent the input sample.
+I searched an ontology for the cell line, "{{cell_line}}".
+I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
+- Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
+- Whether the term has disease or cell line type information which matches sample information.

@@ -135,14 +135,47 @@ class BsReview(BsLlmProcess):
             if not syn_type in reformatted_dict:
                 reformatted_dict[syn_type] = []
             reformatted_dict[syn_type].append(syn["name"])
-        reformatted_dict["xrefs"] = []
+        reformatted_dict["diseases"] = []
         for i in range(0, len(cvcl["xrefs"])):
             if cvcl["xrefs"][i].startswith("NCBI_TaxID:"):
                 continue
-            reformatted_dict["xrefs"].append(cvcl["xrefs"][i])
             if cvcl["xrefs_comments"][i] != "":
-                reformatted_dict["xrefs"][-1] += " ! " + cvcl["xrefs_comments"][i]
-        reformatted_dict["subsets"] = cvcl["subsets"]
+                reformatted_dict["diseases"].append(cvcl["xrefs_comments"][i])
+
+        subset_sex = [
+            "Female",
+            "Male",
+            "Sex_unspecified",
+            "Sex_ambiguous",
+            "Mixed_sex",
+        ]
+        subset_type = [
+            "Hybridoma",
+            "Transformed_cell_line",
+            "Cancer_cell_line",
+            "Finite_cell_line",
+            "Spontaneously_immortalized_cell_line",
+            "Induced_pluripotent_stem_cell",
+            "Telomerase_immortalized_cell_line",
+            "Undefined_cell_line_type",
+            "Hybrid_cell_line",
+            "Embryonic_stem_cell",
+            "Somatic_stem_cell",
+            "Factor-dependent_cell_line",
+            "Stromal_cell_line",
+            "Conditionally_immortalized_cell_line",
+        ]
+        for subset in cvcl["subsets"]:
+            if subset in subset_sex:
+                if not "sex" in reformatted_dict:
+                    reformatted_dict["sex"] = [subset]
+                else:
+                    reformatted_dict["sex"].append(subset)
+            elif subset in subset_type:
+                if not "cell line type" in reformatted_dict:
+                    reformatted_dict["cell line type"] = [subset]
+                else:
+                    reformatted_dict["cell line type"].append(subset)
         return reformatted_dict
 
     def review(self, verbose=False, test=False):
@@ -165,7 +198,7 @@ class BsReview(BsLlmProcess):
 
             ## Candidate evaluation
             ### Replace "{{cell_line}}" in the prompt with this cell line name
-            messages[-1]["content"] = messages[-1]["content"].replace("{{cell_line}}", "\""+str(self.llmner_dict[bs_id]["extracted_json"]["cell_line"])+"\"")
+            messages[-1]["content"] = messages[-1]["content"].replace("{{cell_line}}", str(self.llmner_dict[bs_id]["extracted_json"]["cell_line"]))
             ### Input of candidate terms
             for cvcl_cand in self.bs_cvcl_cands[bs_id]:
                 cvcl_id = cvcl_cand["id"].replace(":", "_")
