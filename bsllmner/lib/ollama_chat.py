@@ -66,13 +66,13 @@ class BsNer(BsLlmProcess):
 
     def ner(self, verbose=False, test=False):
         to = 10 if test else len(self.bs_json)
-        messages_base = self.construct_messages()
+        base_messages = self.construct_messages()
         for i in range(0, to):
             input_bs = json.dumps(self.bs_json[i], indent=2)
             if i%10==0 and verbose and not test:
                 print_time(str(i))
 
-            messages = messages_base
+            messages = copy.deepcopy(base_messages)
             messages[-1]["content"] += input_bs
             options = {"temperature": 0}
             response = ollama.chat(model=self.model, messages=messages, options=options)
