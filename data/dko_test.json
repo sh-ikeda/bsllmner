@@ -1,0 +1,50 @@
+[
+  {
+    "accession": "SAMN09394385",
+    "cell line": "22RV-1",
+    "genotype/variation": "PTEN and BRG1 knockdown",
+    "organism": "Homo sapiens",
+    "source_name": "cell line",
+    "tissue": "prostate cancer",
+    "title": "PTEN_BRG1-KD_ATAC-Seq"
+  },
+  {
+    "accession": "SAMN09399522",
+    "organism": "Homo sapiens",
+    "population": "CD49d+_Band3-",
+    "source_name": "CD34+ hematopoietic cells",
+    "title": "Donor3_P5_Rep3_ATAC"
+  },
+  {
+    "accession": "SAMN11357744",
+    "donor id": "human donor Donor2-D13",
+    "genotype": "BAP1-/-",
+    "organism": "Homo sapiens",
+    "source_name": "BAP1-/- human organoids",
+    "tissue": "liver ductal organoids",
+    "title": "hLiverOrganoids-ATACseq-V1-p53BAP1KO-D13-PB2new-2"
+  },
+  {
+    "accession": "SAMN16133304",
+    "cell line background": "HCT116",
+    "cell type": "colorectal carcinoma cell line",
+    "genotype/variation": "TP53-WT",
+    "morphology": "epithelial",
+    "organism": "Homo sapiens",
+    "source_name": "p53 WT 5-FU non treated",
+    "tissue source": "colon",
+    "title": "p53 WT 5-FU non treated rep1 [ATAC-seq]",
+    "treatment": "treated with 5-FU 0hr"
+  },
+  {
+    "accession": "SAMN22569472",
+    "Sex": "female",
+    "cell line": "RPE-1",
+    "cell type": "hTERT-immortalized retinal pigment epithelial cell line",
+    "genotype": "p53 KO",
+    "organism": "Homo sapiens",
+    "source_name": "Retina (female)",
+    "title": "RPE-1 p53KO + Reversine 2",
+    "treatment": "Reversine 0.5 uM 48 hours before splitting, long-term"
+  }
+]
