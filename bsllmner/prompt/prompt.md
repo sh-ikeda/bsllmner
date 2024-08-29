@@ -78,3 +78,18 @@ I searched an ontology for the cell line, "{{cell_line}}".
 I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
 - Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
 - Whether the term has disease or cell line type information which matches sample information.
+
+# 9
+user  
+A gene knockout (KO), also known as a gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
+
+Meanwhile, a gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out or knocked-down, extract the gene name from the input data.
+
+Your output must be JSON format, like {"knockout": ["NAME"], "knockdown": ["NAME"]} .
+"NAME" is just a place holder. Replace this with the gene name you extract.
+When input sample data is not considered to be had a gene knocked-out or knocked-down, the value of "knockout" or "knockdown" of your output JSON must be an empty list.
+Note that multiple genes can be knocked out in one sample. In that case, include all of them in the list of the output JSON. For example, if you found "PRNP" and "MSTN" as knocked out genes, the value of the "knockout" attribute must be ["PRNP", "MSTN"].
+Are you ready?
+
