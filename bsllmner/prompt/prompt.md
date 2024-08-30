@@ -93,3 +93,18 @@ When input sample data is not considered to be had a gene knocked-out or knocked
 Note that multiple genes can be knocked out in one sample. In that case, include all of them in the list of the output JSON. For example, if you found "PRNP" and "MSTN" as knocked out genes, the value of the "knockout" attribute must be ["PRNP", "MSTN"].
 Are you ready?
 
+# 10
+user  
+A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+Your output must be JSON format, like {"cell_line": "NAME"} .
+"NAME" is just a place holder. Replace this with a string you extract.
+
+When input sample data is not of a cell line, you are not supposed to extract any text from input.
+If you can not find a cell line name in input, your output is like {"cell_line": "None"} .
+
+Note that some samples are cells differentiated from a stem cell line. In this case, the stem cell line name is mentioned in the metadata, but the sample is not the cell line itself. Therefore, the output must be {"cell_line": "None"} .
+
+Are you ready?
