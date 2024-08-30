@@ -108,3 +108,18 @@ If you can not find a cell line name in input, your output is like {"cell_line":
 Note that some samples are cells differentiated from a stem cell line. In this case, the stem cell line name is mentioned in the metadata, but the sample is not the cell line itself. Therefore, the output must be {"cell_line": "None"} .
 
 Are you ready?
+
+# 11
+user  
+A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+Your output must be in JSON format, like {"cell_line": "NAME"} .
+"NAME" is just a placeholder. Replace it with a string you have extracted.
+
+If the input sample data is not of a cell line, you should not extract any text from the input and your output must be like {"cell_line": "None"} .
+
+Note that some samples are cells differentiated from a stem cell line. In this case, the stem cell line name is mentioned in the metadata, but the sample is not the cell line itself. Therefore, the output must be {"cell_line": "None"} . Of course, if the sample is considered to be the stem cell line itself, extract the stem cell line name and include it in your output.
+
+Are you ready?
