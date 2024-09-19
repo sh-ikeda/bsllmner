@@ -140,7 +140,7 @@ Your output must be in JSON format, like [{"gene": "GENE_NAME", "method": "METHO
 "GENE_NAME" and "METHOD_NAME" are placeholders. Replace them with the gene name you extract and the modulation method name you specify, respectively.
 If the modulation method is either gene knockout, gene knockdown, or gene overexpression, the value of the "method" attribute must be "knockout", "knockdown", and "overexpression", respectively. Otherwise, the value of the "method" attribute must be the method name found in the input data.
 
-If the input sample data is not considered to have genes whose expression is modulated, your output JSON must be an empty list.
+If the input sample data is not considered to have genes whose expression is modulated, your output JSON must be an empty list (namely, '[]').
 Note that multiple genes can be modulated in one sample. In this case, be sure to include all of them in the list of the output JSON. For example, if you find "PRNP" and "MSTN" as knocked out genes, your output must be [{"gene": "PRNP", "method": "knockout"}, {"gene": "MSTN", "method": "knockout"}].
 Note also that multiple gene modulation methods can be used for one sample. For example, you may find "ARID1A" as a knocked-out gene and "CHAF1A" as a gene treated with dTAG. In this case, your output must be [{"gene": "ARID1A", "method": "knockout"}, {"gene": "CHAF1A", "method": "dTAG"}].
 
