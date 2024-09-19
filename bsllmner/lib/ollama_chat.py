@@ -7,6 +7,7 @@ import copy
 from collections import defaultdict
 from ..prompt import load_prompt
 from .util import print_time
+from .util import extract_last_json
 
 
 class BsLlmProcess:
@@ -79,7 +80,7 @@ class BsNer(BsLlmProcess):
             res_text = response["message"]["content"]
 
             bs_id = self.bs_json[i]["accession"]
-            res_text_json = self.extract_json_from_llmout(res_text)
+            res_text_json = extract_last_json(res_text)
             print(bs_id, res_text_json, res_text.replace("\n", " "), sep="\t")
         return
 
