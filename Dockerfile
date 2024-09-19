@@ -1,4 +1,5 @@
-FROM ollama/ollama:0.1.38
+FROM ollama/ollama:0.3.11
+# FROM ollama/ollama:0.1.38
 
 RUN apt update
 RUN apt install -y python3.10
