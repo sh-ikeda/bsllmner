@@ -81,7 +81,7 @@ class BsNer(BsLlmProcess):
 
             bs_id = self.bs_json[i]["accession"]
             res_text_json = extract_last_json(res_text)
-            print(bs_id, res_text_json, res_text.replace("\n", " "), sep="\t")
+            print(bs_id, res_text_json.replace("\n", ""), res_text.replace("\n", " "), sep="\t")
         return
 
 

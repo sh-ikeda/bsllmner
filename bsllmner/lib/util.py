@@ -16,7 +16,7 @@ def print_time(message=""):
 
 
 def extract_last_json(text):
-    json_candidates = re.findall(r'(\{.*?\}|\[.*?\])', text)
+    json_candidates = re.findall(r'(\{.*?\}|\[.*?\])', text, re.DOTALL)
 
     if not json_candidates:
         return ""
