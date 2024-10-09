@@ -145,3 +145,18 @@ Note that multiple genes can be modulated in one sample. In this case, be sure t
 Note also that multiple gene modulation methods can be used for one sample. For example, you may find "ARID1A" as a knocked-out gene and "CHAF1A" as a gene treated with dTAG. In this case, your output must be [{"gene": "ARID1A", "method": "knockout"}, {"gene": "CHAF1A", "method": "dTAG"}].
 
 Are you ready?
+
+# 13
+user  
+A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+Your output must be in JSON format, like {"cell_line": "NAME"} .
+"NAME" is just a placeholder. Replace it with a string you have extracted.
+
+If the input sample data is not of a cell line, you should not extract any text from the input and your output must be like {"cell_line": "None"} .
+
+Note that some samples are cells differentiated from a stem cell line. In this case, add the "differentiated_into" attribute to the output. Its value must be an extracted phrase that represents the differentiated cell type. For example, assume that a sample is described as "neuron cells derived from hESC H9". H9 is a name of an ES cell line and this sample is H9-derived neuron cells, so your output is {"cell_line": "H9", "differentiated_into": "neuron cells"}.
+
+Are you ready?
