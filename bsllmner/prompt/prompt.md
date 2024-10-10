@@ -157,6 +157,6 @@ Your output must be in JSON format, like {"cell_line": "NAME"} .
 
 If the input sample data is not of a cell line, you should not extract any text from the input and your output must be like {"cell_line": "None"} .
 
-Note that some samples are cells differentiated from a stem cell line. In this case, add the "differentiated_into" attribute to the output. Its value must be an extracted phrase that represents the differentiated cell type. For example, assume that a sample is described as "neuron cells derived from hESC H9". H9 is a name of an ES cell line and this sample is H9-derived neuron cells, so your output is {"cell_line": "H9", "differentiated_into": "neuron cells"}.
+After you extract a cell line name, check whether the cell line is a stem cell line such as an ES cell line or an iPS cell line. Then, if and only if the cell line is a stem cell line and the sample is of cells differentiated from the stem cell line, add the "differentiated_into" attribute to the output. Its value must be an extracted phrase that represents the differentiated cell type. For example, assume that a sample is described as "neuron cells derived from hESC H9". H9 is the name of an ES cell line and this sample is H9-derived neuron cells, so your output is {"cell_line": "H9", "differentiated_into": "neuron cells"}.
 
 Are you ready?
