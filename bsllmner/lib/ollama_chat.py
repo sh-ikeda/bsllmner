@@ -205,6 +205,10 @@ class BsReview(BsLlmProcess):
                 cvcl_id = cvcl_cand["id"].replace(":", "_")
                 messages[-1]["content"] += "\n```json: " + cvcl_id + ".json\n" + json.dumps(self.reformat_cvcl(cvcl_cand), indent=2) + "\n```\n"
 
+            if test:
+                print(messages[-1]["content"])
+                exit(1)
+
             ## Ask LLM
             options = {"temperature": 0}
             response = ollama.chat(model=self.model, messages=messages, options=options)
