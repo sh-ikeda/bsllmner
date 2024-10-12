@@ -213,8 +213,13 @@ class BsReview(BsLlmProcess):
             options = {"temperature": 0}
             response = ollama.chat(model=self.model, messages=messages, options=options)
             res_text = response["message"]["content"]
-            print("# ", bs_id)
-            print(res_text)
+            ## markdown output
+            # print("# ", bs_id)
+            # print(res_text)
+
+            ## tsv output
+            res_text_json = extract_last_json(res_text)
+            print(bs_id, res_text_json.replace("\n", "").replace("\t", " "), res_text.replace("\n", " ").replace("\t", " "), sep="\t")
 
         return
 
