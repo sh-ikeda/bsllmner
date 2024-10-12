@@ -160,3 +160,12 @@ If the input sample data is not of a cell line, you should not extract any text 
 After you extract a cell line name, check whether the cell line is a stem cell line such as an ES cell line or an iPS cell line. Then, if and only if the cell line is a stem cell line and the sample is of cells differentiated from the stem cell line, add the "differentiated_into" attribute to the output. Its value must be an extracted phrase that represents the differentiated cell type. For example, assume that a sample is described as "neuron cells derived from hESC H9". H9 is the name of an ES cell line and this sample is H9-derived neuron cells, so your output is {"cell_line": "H9", "differentiated_into": "neuron cells"}.
 
 Are you ready?
+
+# 14
+user  
+I searched an ontology for the cell line, "{{cell_line}}".
+I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
+- Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
+- Whether the term has disease or cell line type information which matches sample information.
+Base on the confidence score, output the ID of the term which most likely represents the input sample in the format of {"cell_line_id": "<ID>"}.
+If you are not sure which one is the most likely, output {"cell_line_id": "not unique"}.
