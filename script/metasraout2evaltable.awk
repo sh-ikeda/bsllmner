@@ -8,7 +8,7 @@ BEGIN {
 FNR==NR && $4~/^CVCL/ {
     a[$1] = $3 "\t" $4 "\t" $5 "\t" $9
     if (b[$1]++) {
-        a[$1] = "not unique"
+        a[$1] = "not unique\tnot unique"
     }
 }
 
