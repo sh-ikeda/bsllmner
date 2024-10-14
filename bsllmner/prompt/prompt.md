@@ -167,5 +167,6 @@ I searched an ontology for the cell line, "{{cell_line}}".
 I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
 - Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
 - Whether the term has disease or cell line type information which matches sample information.
-Base on the confidence score, output the ID of the term which most likely represents the input sample in the format of {"cell_line_id": "<ID>"}.
-If you are not sure which one is the most likely, output {"cell_line_id": "not unique"}.
+
+Based on the confidence score, output the ID of the term that is most likely to represent the input sample in the format of {"cell_line_id": "<ID>"}.
+If it is not clear which one is most likely from the given information, output {"cell_line_id": "not unique"}.
