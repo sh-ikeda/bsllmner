@@ -33,16 +33,17 @@ BEGIN {
 
 # answers.tsv
 FNR==NR && FNR!=1 {
-    is_target_sample[$1] = is_target_exptype($2)
+    exptype_of_sample[$1] = $2
     answer_of_sample[$1] = $4
 }
 
 # metasraout.tsv
-FNR!=NR && is_target_sample[$1] {
+FNR!=NR && is_target_exptype(exptype_of_sample[$1]) {
     if ($4 ~ /^CVCL:/) {
         is_cvcl_mapped_sample[$1] = 1
         if ($4 == answer_of_sample[$1]) {
             tp_cvcl++
+            # print $1
         } else {
             fp_cvcl++
         }
@@ -53,7 +54,8 @@ END {
     if (!exit_without_end) {
         # process for samples not mapped to CVCL
         for (sample in answer_of_sample) {
-            if (!is_cvcl_mapped_sample[sample]) {  # output is "not mapped to CVCL"
+            if (is_target_exptype(exptype_of_sample[sample]) &&
+                !is_cvcl_mapped_sample[sample]) {       # output is "not mapped to CVCL"
                 if (answer_of_sample[sample] == "") {
                     tp_notcvcl++
                 } else {
