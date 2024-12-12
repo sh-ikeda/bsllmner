@@ -32,6 +32,10 @@ BEGIN {
 }
 
 # metasraout.tsv
+FNR==NR && FNR==1 {
+    file = FILENAME
+}
+
 FNR==NR {
     if ($4 ~ /^CVCL:/) {
         in_output_answer[$1, $4] = 1
@@ -67,14 +71,17 @@ FNR!=NR && FNR!=1 && is_target_exptype($2) {
 
 END {
     if (!exit_without_end) {
-        print "TP_CVCL: "tp_cvcl        # Correctly output CVCL
-        print "TP_notCVCL: "tp_notcvcl  # Correctly no output
-        print "FN_CVCL: "fn_cvcl        # Wrongly no output answer
-        print "FN_notCVCL: "fn_notcvcl  # Wrongly output CVCL
         tp = tp_cvcl + tp_notcvcl
         fn = fn_cvcl + fn_notcvcl
-        print "total:  " tp+fn
-        print "coverage: " tp/(tp+fn)
-        print "coverage for CVCL: " tp_cvcl/(tp_cvcl+fn_cvcl)
+
+        print type, file
+        print "coverage:", tp/(tp+fn)
+        print "coverage for CVCL:", tp_cvcl/(tp_cvcl+fn_cvcl)
+        print "coverage for not CVCL:", tp_notcvcl/(tp_notcvcl+fn_notcvcl)
+        print "TP_CVCL:", tp_cvcl        # Correctly output CVCL
+        print "TP_notCVCL:", tp_notcvcl  # Correctly no output
+        print "FN_CVCL:", fn_cvcl        # Wrongly no output answer
+        print "FN_notCVCL:", fn_notcvcl  # Wrongly output CVCL
+        print "total:", tp+fn
     }
 }

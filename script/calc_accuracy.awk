@@ -38,6 +38,10 @@ FNR==NR && FNR!=1 {
 }
 
 # metasraout.tsv
+FNR!=NR && FNR==1 {
+    file = FILENAME
+}
+
 FNR!=NR && is_target_exptype(exptype_of_sample[$1]) {
     if ($4 ~ /^CVCL:/) {
         is_cvcl_mapped_sample[$1] = 1
@@ -63,14 +67,17 @@ END {
                 }
             }
         }
-        print "TP_CVCL: "tp_cvcl        # Correctly output CVCL
-        print "TP_notCVCL: "tp_notcvcl  # Correctly no output
-        print "FP_CVCL: "fp_cvcl        # Wrongly output CVCL
-        print "FP_notCVCL: "fp_notcvcl  # Wrongly no output
         tp = tp_cvcl + tp_notcvcl
         fp = fp_cvcl + fp_notcvcl
-        print "total:  " tp+fp
-        print "accuracy: " tp/(tp+fp)
-        print "accuracy for CVCL: " tp_cvcl/(tp_cvcl+fp_cvcl)
+
+        print type, file
+        print "accuracy:", tp/(tp+fp)
+        print "accuracy for CVCL:", tp_cvcl/(tp_cvcl+fp_cvcl)
+        print "accuracy for not CVCL:", tp_notcvcl/(tp_notcvcl+fp_notcvcl)
+        print "TP_CVCL:", tp_cvcl        # Correctly output CVCL
+        print "TP_notCVCL:", tp_notcvcl  # Correctly no output
+        print "FP_CVCL:", fp_cvcl        # Wrongly output CVCL
+        print "FP_notCVCL:", fp_notcvcl  # Wrongly no output
+        print "total:", tp+fp
     }
 }
