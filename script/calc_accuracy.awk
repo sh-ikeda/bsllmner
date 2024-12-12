@@ -25,7 +25,7 @@ BEGIN {
     OFS = "\t"
     exit_without_end = 0
     if (!type) {
-        print "usage: awk -f calc_precision.awk -v type=[atac|chip|all] <answers> <metasraout>" > "/dev/stderr"
+        print "usage: awk -f calc_accuracy.awk -v type=[atac|chip|all] <answers> <metasraout>" > "/dev/stderr"
         exit_without_end = 1
         exit 1
     }
@@ -70,7 +70,7 @@ END {
         tp = tp_cvcl + tp_notcvcl
         fp = fp_cvcl + fp_notcvcl
         print "total:  " tp+fp
-        print "precision: " tp/(tp+fp)
-        print "precision for CVCL: " tp_cvcl/(tp_cvcl+fp_cvcl)
+        print "accuracy: " tp/(tp+fp)
+        print "accuracy for CVCL: " tp_cvcl/(tp_cvcl+fp_cvcl)
     }
 }

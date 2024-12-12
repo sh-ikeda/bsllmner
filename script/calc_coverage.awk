@@ -25,7 +25,7 @@ BEGIN {
     OFS = "\t"
     exit_without_end = 0
     if (!type) {
-        print "usage: awk -f calc_precision.awk -v type=[atac|chip|all] <metasraout> <answers>" > "/dev/stderr"
+        print "usage: awk -f calc_coverage.awk -v type=[atac|chip|all] <metasraout> <answers>" > "/dev/stderr"
         exit_without_end = 1
         exit 1
     }
@@ -74,7 +74,7 @@ END {
         tp = tp_cvcl + tp_notcvcl
         fn = fn_cvcl + fn_notcvcl
         print "total:  " tp+fn
-        print "recall: " tp/(tp+fn)
-        print "recall for CVCL: " tp_cvcl/(tp_cvcl+fn_cvcl)
+        print "coverage: " tp/(tp+fn)
+        print "coverage for CVCL: " tp_cvcl/(tp_cvcl+fn_cvcl)
     }
 }
