@@ -31,10 +31,6 @@ BEGIN {
     }
 }
 
-FNR==1{
-    next
-}
-
 # metasraout.tsv
 FNR==NR {
     if ($4 ~ /^CVCL:/) {
@@ -50,6 +46,7 @@ FNR!=NR && FNR!=1 && is_target_exptype($2) {
     if ($4 ~ /^CVCL:/) {
         if (in_output_answer[$1, $4]) {
             tp_cvcl++
+            #print $1
         } else {
             fn_cvcl++
         }
