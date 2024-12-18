@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:0.5.4
+    container_name: ollama_sikeda
+    ports:
+      - "11436:11436"
+    volumes:
+      - ollama:/root/.ollama
+
+  bsllmner:
+    image: shikeda/bsllmner:0.1.5
+    container_name: bsllmner
+    depends_on:
+      - ollama
+    volumes:
+      - ./data:/data
+    #command: python3 -m bsllmner #["input.json"] # 必要に応じてコマンドを変更
+    entrypoint: ["sh", "-c"]
+    network_mode: "service:ollama"
+
+volumes:
+  ollama:
