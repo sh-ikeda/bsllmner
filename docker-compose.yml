@@ -8,7 +8,11 @@ services:
       - "11436:11436"
     volumes:
       - ollama:/root/.ollama
-
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
   bsllmner:
     image: shikeda/bsllmner:0.1.5
     container_name: bsllmner
