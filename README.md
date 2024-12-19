@@ -41,4 +41,4 @@ docker run --rm --network network_ollama -v `pwd`:/data/ shikeda/bsllmner:0.2.0 
 - `-r /data/metasraout.tsv`: Specify TSV file output by MetaSRA
 - `-l /data/llmout.tsv`: Specify TSV file output by extraction task of `bsllmner`
 - `review`: Review task mode
-- `/data/input.json`: input json
+- `/data/input.json`: input json (same file as input of extraction task)
