@@ -11,11 +11,13 @@ from .util import extract_last_json
 
 
 class BsLlmProcess:
-    def __init__(self, bs_json, model, prompt_indices):
+    def __init__(self, bs_json, model, prompt_indices, host_url=""):
         self.bs_json = bs_json
         self.model = model
         self.prompt_indices = prompt_indices
         self.prompts = self.load_prompt()
+        self.host_url = host_url
+        self.client = ollama.Client(host=host_url)
         return
 
     def load_prompt(self):
@@ -61,8 +63,8 @@ class BsLlmProcess:
 
 
 class BsNer(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_indices):
-        super().__init__(bs_json, model, prompt_indices)
+    def __init__(self, bs_json, model, prompt_indices, host_url):
+        super().__init__(bs_json, model, prompt_indices, host_url)
         return
 
     def ner(self, verbose=False, test=False):
@@ -76,7 +78,10 @@ class BsNer(BsLlmProcess):
             messages = copy.deepcopy(base_messages)
             messages[-1]["content"] += input_bs
             options = {"temperature": 0}
-            response = ollama.chat(model=self.model, messages=messages, options=options)
+            if self.host_url == "":
+                response = ollama.chat(model=self.model, messages=messages, options=options)
+            else:
+                response = self.client.chat(model=self.model, messages=messages, options=options)
             res_text = response["message"]["content"]
 
             bs_id = self.bs_json[i]["accession"]
@@ -86,8 +91,8 @@ class BsNer(BsLlmProcess):
 
 
 class BsReview(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_indices, metasra_tsv, llmner_tsv):
-        super().__init__(bs_json, model, prompt_indices)
+    def __init__(self, bs_json, model, prompt_indices, host_url, metasra_tsv, llmner_tsv):
+        super().__init__(bs_json, model, prompt_indices, host_url)
         self.metasra_tsv = metasra_tsv
         self.llmner_tsv = llmner_tsv
         self.llmner_dict =  self.parse_llmner_tsv()
@@ -211,7 +216,10 @@ class BsReview(BsLlmProcess):
 
             ## Ask LLM
             options = {"temperature": 0}
-            response = ollama.chat(model=self.model, messages=messages, options=options)
+            if self.host_url == "":
+                response = ollama.chat(model=self.model, messages=messages, options=options)
+            else:
+                response = self.client.chat(model=self.model, messages=messages, options=options)
             res_text = response["message"]["content"]
             ## markdown output
             # print("# ", bs_id)

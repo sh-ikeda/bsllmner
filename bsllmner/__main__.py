@@ -13,6 +13,7 @@ def main():
     parser.add_argument('-t', '--test', action='store_true')
     parser.add_argument('-m', '--model')
     parser.add_argument('-i', '--prompt_indices')
+    parser.add_argument('-u', '--host_url', default="")
     args = parser.parse_args()
 
     mode = args.mode
@@ -23,12 +24,14 @@ def main():
     test = args.test
     model = args.model
     prompt_indices = args.prompt_indices.split(",")
+    host_url = args.host_url
     util.print_time()
+
     if mode == "extract":
-        bsner = ollama_chat.BsNer(input_json, model, prompt_indices)
+        bsner = ollama_chat.BsNer(input_json, model, prompt_indices, host_url)
         bsner.ner(verbose, test)
     elif mode == "review":
-        bsreview = ollama_chat.BsReview(input_json, model, prompt_indices, metasra_tsv, llmner_tsv)
+        bsreview = ollama_chat.BsReview(input_json, model, prompt_indices, host_url, metasra_tsv, llmner_tsv)
         bsreview.review(verbose, test)
     util.print_time()
     return
