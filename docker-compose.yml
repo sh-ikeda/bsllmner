@@ -20,9 +20,8 @@ services:
       - ollama
     volumes:
       - ./data:/data
-    #command: python3 -m bsllmner #["input.json"] # 必要に応じてコマンドを変更
-    entrypoint: ["sh", "-c"]
-    command: "python3"
+    entrypoint: ["python3", "-m", "bsllmner"]
+    command: "-h"
     network_mode: "service:ollama"
 
 volumes:
