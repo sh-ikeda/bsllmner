@@ -170,3 +170,15 @@ I have found multiple terms which may represent the sample. Below are the annota
 
 Based on the confidence score, output the ID of the term that is most likely to represent the input sample in the format of {"cell_line_id": "<ID>"}.
 If it is not clear which one is most likely from the given information, output {"cell_line_id": "not unique"}.
+
+# 15
+user  
+I will input json formatted metadata of a study for a biological experiment. If the study is considered to be about some diseases, extract the disease name from the input data.
+
+Your output must be JSON format, like {"disease": ["NAME"]} .
+"NAME" is just a place holder. Replace this with a string you extract.
+
+Note that multiple diseases can be researched in one study. In this case, be sure to include all of them in the list of the output JSON. For example, if you find "lung cancer" and "stomach cancer" in input, your output must be {"disease": ["lung cancer", "stomach cancer"]].
+
+If the input sample data is not considered to intend to research about diseases, your output JSON must be {"disease": []}.
+Are you ready?
