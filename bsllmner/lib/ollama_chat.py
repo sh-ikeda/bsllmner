@@ -11,20 +11,24 @@ from .util import extract_last_json
 
 
 class BsLlmProcess:
-    def __init__(self, bs_json, model, prompt_indices, host_url=""):
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url=""):
         self.bs_json = bs_json
         self.model = model
         self.prompt_indices = prompt_indices
-        self.prompts = self.load_prompt()
+        self.prompts = self.load_prompt(prompt_filename)
         self.host_url = host_url
         self.client = ollama.Client(host=host_url)
         return
 
-    def load_prompt(self):
-        fname = "prompt.md"
-        dirname = os.path.dirname(os.path.abspath(__file__))
+    def load_prompt(self, prompt_filename):
+        if prompt_filename == "":
+            dirname = os.path.dirname(os.path.abspath(__file__))
+            prompt_filepath = dirname + "/" + "prompt.md"
+        else:
+            prompt_filepath = prompt_filename
+
         prompts = {}
-        with open(dirname + "/" + fname, "r") as f:
+        with open(prompt_filepath, "r") as f:
             current_id = ""
             is_first_line = False
             for line in f:
@@ -63,8 +67,8 @@ class BsLlmProcess:
 
 
 class BsNer(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_indices, host_url):
-        super().__init__(bs_json, model, prompt_indices, host_url)
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url):
+        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
         return
 
     def ner(self, verbose=False, test=False):
@@ -91,8 +95,8 @@ class BsNer(BsLlmProcess):
 
 
 class BsReview(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_indices, host_url, metasra_tsv, llmner_tsv):
-        super().__init__(bs_json, model, prompt_indices, host_url)
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv):
+        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
         self.metasra_tsv = metasra_tsv
         self.llmner_tsv = llmner_tsv
         self.llmner_dict =  self.parse_llmner_tsv()
@@ -187,6 +191,7 @@ class BsReview(BsLlmProcess):
     def review(self, verbose=False, test=False):
         base_messages = self.construct_messages()
         print_time("Total samples to review: " + str(len(self.bs_cvcl_cands)))
+
         for bs in self.bs_json:
             bs_id = bs["accession"]
             if bs_id not in self.bs_cvcl_cands:
