@@ -1,0 +1,209 @@
+"1":
+  role: user
+  text: |-
+    You are a smart curator of biological data.
+    You are given JSON-formatted data that describe a sample used in a biological experiment.
+    These data are written by scientists who conducted the experiment. Since they are not as familiar with data structurization as you, these might be not structurized well.
+    As a curator, extract information described below from input data and output in JSON format.
+
+    Follow the steps below to construct your output JSON.
+    1. Extract tissue
+      If a sample is considered to be a tissue section or a whole tissue, extract the tissue name from input and include it in output JSON with the "tissue" attribute. For example, if a sample is considered to be a section of liver, your output must include `"tissue": "liver"`.
+    2. Extract host tissue
+      Some biological samples are content of a tissue. For example, content of digestive tract can be used as a sample to investigate microbe of the tract. If a sample is considered to be content collected from a tissue, extract the tissue name from input and include it in output JSON with the "host_tissue" attribute. For example, if a sample is considered to be content collected from intestine, your output must include `"host_tissue": "intestine"`.
+    3. Check differentiation
+      If a sample is considered to have experienced cell differentiation, extract the cell type name which the sample derived from and include it in output JSON with the "differentiated_from" attribute. Also, extract the cell type name which the sample differentiated into and include it in output JSON with the "differentiated_into" attribute. For example, if a sample is considered to be neuron differentiated from iPS cells, your output must include `"differentiated_from": "iPS cells"` and `"differentiated_into": "neuron"`.
+      If you extract a cell name in this step, then proceed to the step 6. Otherwise, proceed to the step 4.
+    4. Extract cell line
+      A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+      If a sample is considered to be a cell line, extract the cell line name from input and include it in output JSON with the "cell_line" attribute. For example, if a sample is considered to be HeLa, your output must include `"cell_line": "HeLa"`.
+      This attribute is supposed to describe a specific cell line name. Therefore, even if you find a string like "lung cancer cell line", you do not put the string in your output.
+    5. Extract cell type
+       If a sample is considered to be a specific type of cell, extract the cell type name from input and include it in output JSON with the "cell_type" attribute. For example, if a sample is considered to be leukocyte, your output must include `"cell_type": "leukocyte"`.
+    6. Extract disease
+       If input data mention a disease of the organism the sample derived, extract the disease name from input and include it in output JSON with the "disease" attribute. For example, if a sample is considered to be collected from a patient of amyotrophic lateral sclerosis, your output must include `"disease": "amyotrophic lateral sclerosis"`.
+    7. Output JSON
+       Your final output is a JSON-formatted data including all data you extracted. If you do not find information listed above in input data, you do not output the attribute. For example, if a sample is considered to be neuron collected from a patient of amyotrophic lateral sclerosis, your output is: {"cell_type": "neuron", "disease": "amyotrophic lateral sclerosis"}.
+    
+    Are you ready?
+"2":
+  role: user
+  text: |-
+    A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+    Your output must be JSON format, like {"cell_line": "NAME"} .
+    "NAME" is just a place holder. Replace this with a string you extract.
+
+    When input sample data is not of a cell line, you are not supposed to extract any text from input.
+    If you can not find a cell line name in input, your output is like {"cell_line": "None"} .
+    Are you ready?
+"3":
+  role: user
+  text: |-
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a tissue section or a whole tissue, extract the tissue name from the input data.
+    Your output must be JSON format, like {"tissue": "NAME"} .
+    "NAME" is just a place holder. Replace this with a string you extract.
+    For example, if a sample is considered to be a section of liver, your output is {"tissue": "liver"}.
+    When input sample data is not considered to be a tissue section or a whole tissue, you are not supposed to extract any text from input. In such a case, your output is like {"tissue": "None"} .
+    Are you ready?
+"4":
+  role: user
+  text: |-
+    A gene knockout (KO), also known as a gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
+
+    Meanwhile, a gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out or knocked-down, extract the gene name from the input data.
+
+    Your output must be JSON format, like {"knockout": "NAME", "knockdown": "NAME"} .
+    "NAME" is just a place holder. Replace this with the string you extract.
+    When input sample data is not considered to be had a gene knocked-out or knocked-down, the value of "knockout" or "knockdown" of your output JSON must be "None".
+    Are you ready?
+"5":
+  role: system
+  text: |-
+    You are a smart curator of biological data
+"6":
+  role: assistant
+  text: |-
+    I'm ready! Please provide the JSON formatted metadata of the sample for the biological experiment.
+"7":
+  role: user
+  text: |-
+    Then think step by step for the data below.
+"8":
+  role: user
+  text: |-
+    I searched an ontology for the cell line, "{{cell_line}}".
+    I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
+      - Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
+      - Whether the term has disease or cell line type information which matches sample information.
+"9":
+  role: user
+  text: |-
+    A gene knockout (KO), also known as a gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
+
+    Meanwhile, a gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be had a gene knocked-out or knocked-down, extract the gene name from the input data.
+
+    Your output must be JSON format, like {"knockout": ["NAME"], "knockdown": ["NAME"]} .
+    "NAME" is just a place holder. Replace this with the gene name you extract.
+    When input sample data is not considered to be had a gene knocked-out or knocked-down, the value of "knockout" or "knockdown" of your output JSON must be an empty list.
+    Note that multiple genes can be knocked out in one sample. In that case, include all of them in the list of the output JSON. For example, if you found "PRNP" and "MSTN" as knocked out genes, the value of the "knockout" attribute must be ["PRNP", "MSTN"].
+    Are you ready?
+"10":
+  role: user
+  text: |-
+    A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+    Your output must be JSON format, like {"cell_line": "NAME"} .
+    "NAME" is just a place holder. Replace this with a string you extract.
+
+    When input sample data is not of a cell line, you are not supposed to extract any text from input.
+    If you can not find a cell line name in input, your output is like {"cell_line": "None"} .
+
+    Note that some samples are cells differentiated from a stem cell line. In this case, the stem cell line name is mentioned in the metadata, but the sample is not the cell line itself. Therefore, the output must be {"cell_line": "None"} .
+
+    Are you ready?
+"11":
+  role: user
+  text: |-
+    A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+    Your output must be in JSON format, like {"cell_line": "NAME"} .
+    "NAME" is just a placeholder. Replace it with a string you have extracted.
+
+    If the input sample data is not of a cell line, you should not extract any text from the input and your output must be like {"cell_line": "None"} .
+
+    Note that some samples are cells differentiated from a stem cell line. In this case, the stem cell line name is mentioned in the metadata, but the sample is not the cell line itself. Therefore, the output must be {"cell_line": "None"} . Of course, if the sample is considered to be the stem cell line itself, extract the stem cell line name and include it in your output.
+
+    Are you ready?
+"12":
+  role: user
+  text: |-
+    There are several experimental methods to modulate gene expression.
+
+    Gene knockout (KO), also known as gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
+
+    Meanwhile, gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+    Gene overexpression refers to the process of increasing the expression of a specific gene beyond its normal levels in a cell. This is achieved by trasfection of a plasmid carrying the gene of interest, transduction of viruses carrying the gene of interest, etc.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to have genes whose expression is experimentally modulated, extract the gene names from the input data and specify the modulation method.
+
+    Your output must be in JSON format, like [{"gene": "GENE_NAME", "method": "METHOD_NAME"}] .
+    "GENE_NAME" and "METHOD_NAME" are placeholders. Replace them with the gene name you extract and the modulation method name you specify, respectively.
+    If the modulation method is either gene knockout, gene knockdown, or gene overexpression, the value of the "method" attribute must be "knockout", "knockdown", and "overexpression", respectively. Otherwise, the value of the "method" attribute must be the method name found in the input data.
+
+    If the input sample data is not considered to have genes whose expression is modulated, your output JSON must be an empty list (namely, '[]').
+    Note that multiple genes can be modulated in one sample. In this case, be sure to include all of them in the list of the output JSON. For example, if you find "PRNP" and "MSTN" as knocked out genes, your output must be [{"gene": "PRNP", "method": "knockout"}, {"gene": "MSTN", "method": "knockout"}].
+    Note also that multiple gene modulation methods can be used for one sample. For example, you may find "ARID1A" as a knocked-out gene and "CHAF1A" as a gene treated with dTAG. In this case, your output must be [{"gene": "ARID1A", "method": "knockout"}, {"gene": "CHAF1A", "method": "dTAG"}].
+
+    Are you ready?
+"13":
+  role: user
+  text: |-
+    A cell line is a group of cells that are genetically identical and have been cultured in a laboratory setting. For example, HeLa, Jurkat, HEK293, etc. are names of commonly used cell lines.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to be a cell line, extract the cell line name from the input data.
+
+    Your output must be in JSON format, like {"cell_line": "NAME"} .
+    "NAME" is just a placeholder. Replace it with a string you have extracted.
+
+    If the input sample data is not of a cell line, you should not extract any text from the input and your output must be like {"cell_line": "None"} .
+
+    After you extract a cell line name, check whether the cell line is a stem cell line such as an ES cell line or an iPS cell line. Then, if and only if the cell line is a stem cell line and the sample is of cells differentiated from the stem cell line, add the "differentiated_into" attribute to the output. Its value must be an extracted phrase that represents the differentiated cell type. For example, assume that a sample is described as "neuron cells derived from hESC H9". H9 is the name of an ES cell line and this sample is H9-derived neuron cells, so your output is {"cell_line": "H9", "differentiated_into": "neuron cells"}.
+
+    Are you ready?
+"14":
+  role: user
+  text: |-
+    I searched an ontology for the cell line, "{{cell_line}}".
+    I have found multiple terms which may represent the sample. Below are the annotations for each term. For each term, compare it with the input JSON of the sample and show your confidence score (a value between 0-1) about to what extent the entry represents the sample. In the comparison, consider the information such as:
+      - Whether the term has a name or a synonym exactly matches the extracted cell line name, "{{cell_line}}".
+      - Whether the term has disease or cell line type information which matches sample information.
+
+      Based on the confidence score, output the ID of the term that is most likely to represent the input sample in the format of {"cell_line_id": "<ID>"}.
+      If it is not clear which one is most likely from the given information, output {"cell_line_id": "not unique"}.
+"15":
+  role: user
+  text: |-
+    I will input json formatted metadata of a study for a biological experiment. If the study is considered to be about some diseases, extract the disease name from the input data.
+
+    Your output must be JSON format, like {"disease": ["NAME"]} .
+    "NAME" is just a place holder. Replace this with a string you extract.
+
+    Note that multiple diseases can be researched in one study. In this case, be sure to include all of them in the list of the output JSON. For example, if you find "lung cancer" and "stomach cancer" in input, your output must be {"disease": ["lung cancer", "stomach cancer"]].
+
+    If the input sample data is not considered to intend to research about diseases, your output JSON must be {"disease": []}.
+    Are you ready?
+"16":
+  role: user
+  text: |-
+    There are several experimental methods to modulate gene expression.
+
+    Gene knockout (KO), also known as gene deletion, involves completely eliminating the expression of a target gene by replacing it with a non-functional version, usually through homologous recombination in cells or animals. This results in a complete loss of the gene's function.
+
+    Meanwhile, gene knockdown (KD), also known as RNA interference (RNAi), involves reducing the expression of a target gene without completely eliminating it. KD is achieved by introducing small RNA molecules, siRNA or shRNA, that specifically bind to and degrade the messenger RNA (mRNA) of the target gene.
+
+    Gene overexpression refers to the process of increasing the expression of a specific gene beyond its normal levels in a cell. This is achieved by trasfection of a plasmid carrying the gene of interest, transduction of viruses carrying the gene of interest, etc.
+
+    I will input json formatted metadata of a sample for a biological experiment. If the sample is considered to have genes whose expression is experimentally modulated, extract the gene names from the input data and specify the modulation method.
+
+    Your output must be in JSON format, like [{"gene": "GENE_NAME", "method": "METHOD_NAME"}] .
+    "GENE_NAME" and "METHOD_NAME" are placeholders. Replace them with the gene name you extract and the modulation method name you specify, respectively.
+    If the modulation method is either gene knockout, gene knockdown, or gene overexpression, the value of the "method" attribute must be "knockout", "knockdown", and "overexpression", respectively. Otherwise, the value of the "method" attribute must be the method name found in the input data.
+
+    If the input sample data is not considered to have genes whose expression is modulated, your output JSON must be an empty list (namely, '[]').
+    Note that multiple genes can be modulated in one sample. In this case, be sure to include all of them in the list of the output JSON. For example, if you find "PRNP" and "MSTN" as knocked out genes, your output must be [{"gene": "PRNP", "method": "knockout"}, {"gene": "MSTN", "method": "knockout"}].
+    Note also that multiple gene modulation methods can be used for one sample. For example, you may find "ARID1A" as a knocked-out gene and "CHAF1A" as a gene treated with dTAG. In this case, your output must be [{"gene": "ARID1A", "method": "knockout"}, {"gene": "CHAF1A", "method": "dTAG"}].
+    Also note that genes can be experimentally tagged with short sequences such as FLAG or HA tags. This tagging is intended to facilitate detection and/or purification of the gene product. You should not include this information in your output, because tagging is not a method to modulate gene expression.
+
+    Are you ready?

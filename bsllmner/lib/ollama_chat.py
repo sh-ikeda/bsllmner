@@ -1,11 +1,10 @@
 import ollama
-import sys
 import json
 import re
 import os
 import copy
+import yaml
 from collections import defaultdict
-from ..prompt import load_prompt
 from .util import print_time
 from .util import extract_last_json
 
@@ -23,28 +22,15 @@ class BsLlmProcess:
     def load_prompt(self, prompt_filename):
         if prompt_filename == "":
             dirname = os.path.dirname(os.path.abspath(__file__))
-            prompt_filepath = dirname + "/" + "prompt.md"
+            prompt_filepath = dirname + "/../prompt/" + "prompt.yaml"
         else:
             prompt_filepath = prompt_filename
 
-        prompts = {}
         with open(prompt_filepath, "r") as f:
-            current_id = ""
-            is_first_line = False
-            for line in f:
-                if line[0] == "#":
-                    current_id = re.sub("^# ", "", line).strip()
-                    prompts[current_id] = {}
-                    prompts[current_id]["text"] = ""
-                    is_first_line = True
-                elif is_first_line:
-                    prompts[current_id]["role"] = line.strip()
-                    is_first_line = False
-                elif current_id != "":
-                    prompts[current_id]["text"] += line
+            prompts = yaml.safe_load(f)
 
-        for id in prompts:
-            prompts[id]["text"] = prompts[id]["text"].strip()
+        print(prompts["5"])
+        exit(1)
         return prompts
 
     def construct_messages(self):
@@ -235,9 +221,3 @@ class BsReview(BsLlmProcess):
             print(bs_id, res_text_json.replace("\n", "").replace("\t", " "), res_text.replace("\n", " ").replace("\t", " "), sep="\t")
 
         return
-
-
-if __name__ == "__main__":
-    prompts = load_prompt.parse_md()
-    first_prompt = prompts["1"]
-    print(first_prompt, file=sys.stderr)
