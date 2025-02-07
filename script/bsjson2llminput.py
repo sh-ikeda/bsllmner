@@ -7,19 +7,17 @@ def extract_text_to_tsv(input_json_filename, exception_json_filename=""):
         biosample_json = json.load(f)
 
     filter_keys = set()
-    filter_values = set()
     if exception_json_filename != "":
         with open(exception_json_filename, "r") as f:
             exception_json = json.load(f)
         filter_keys |= set(exception_json["filter_keys"])
-        # filter_values |= set(exception_json["filter_values"])
 
     output_list = []
     for entry in biosample_json:
         output_dict = {}
         output_dict["accession"] = entry["accession"]
         for k, v in entry["characteristics"].items():
-            if (k not in filter_keys) and (not v[0]["text"] in filter_values):
+            if k not in filter_keys:
                 output_dict[k] = v[0]["text"]
         output_list.append(output_dict)
     print(json.dumps(output_list))
