@@ -17,6 +17,7 @@ class BsLlmProcess:
         self.prompts = self.load_prompt(prompt_filename)
         self.host_url = host_url
         self.client = ollama.Client(host=host_url)
+        self.llm_input_json = self.construct_llm_input_json()
         return
 
     def load_prompt(self, prompt_filename):
@@ -29,8 +30,6 @@ class BsLlmProcess:
         with open(prompt_filepath, "r") as f:
             prompts = yaml.safe_load(f)
 
-        print(prompts["5"])
-        exit(1)
         return prompts
 
     def construct_messages(self):
@@ -51,6 +50,23 @@ class BsLlmProcess:
                 res_text_json = '{"error": "IndexError"}'
         return res_text_json.replace("\n", "")
 
+    def construct_llm_input_json(self):
+        # convert input biosample json into minimized format for LLM input
+        dirname = os.path.dirname(os.path.abspath(__file__))
+        filter_filepath = dirname + "/../metadata/" + "filter_key_val_rules.json"
+        with open(filter_filepath, "r") as f:
+            filter_key_val = json.load(f)
+
+        llm_input_json = []
+        for i in range(0, len(self.bs_json)):
+            sample = self.bs_json[i]
+            llm_input_json.append({})
+            for k, v in sample["characteristics"].items():
+                if k not in filter_key_val["filter_keys"]:
+                    llm_input_json[i][k] = v[0]["text"]
+
+        return llm_input_json
+
 
 class BsNer(BsLlmProcess):
     def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url):
@@ -58,10 +74,10 @@ class BsNer(BsLlmProcess):
         return
 
     def ner(self, verbose=False, test=False):
-        to = 10 if test else len(self.bs_json)
+        to = 10 if test else len(self.llm_input_json)
         base_messages = self.construct_messages()
         for i in range(0, to):
-            input_bs = json.dumps(self.bs_json[i], indent=2)
+            input_bs = json.dumps(self.llm_input_json[i], indent=2)
             if i%10==0 and verbose and not test:
                 print_time(str(i))
 
@@ -200,10 +216,6 @@ class BsReview(BsLlmProcess):
             for cvcl_cand in self.bs_cvcl_cands[bs_id]:
                 cvcl_id = cvcl_cand["id"].replace(":", "_")
                 messages[-1]["content"] += "\n```json: " + cvcl_id + ".json\n" + json.dumps(self.reformat_cvcl(cvcl_cand), indent=2) + "\n```\n"
-
-            if test:
-                print(messages[-1]["content"])
-                exit(1)
 
             ## Ask LLM
             options = {"temperature": 0}
