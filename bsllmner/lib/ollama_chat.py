@@ -61,9 +61,9 @@ class BsLlmProcess:
         for i in range(0, len(self.bs_json)):
             sample = self.bs_json[i]
             llm_input_json.append({})
-            for k, v in sample["characteristics"].items():
+            for k, v in sample.items():
                 if k not in filter_key_val["filter_keys"]:
-                    llm_input_json[i][k] = v[0]["text"]
+                    llm_input_json[i][k] = v
 
         return llm_input_json
 
