@@ -1,6 +1,6 @@
 FROM python:3.10-alpine
 
-RUN pip3 install ollama
+RUN pip3 install ollama yaml
 RUN apk update && \
     apk add git
 
