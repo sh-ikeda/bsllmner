@@ -103,10 +103,10 @@ class BsNer(BsLlmProcess):
         is_output_kv = False
         if isinstance(output_json["output"], dict):
             is_output_kv = True
+        output_json["characteristics"] = {}
         if self.is_input_ebi_format and is_output_kv:
-            output_json["characteristics"] = {}
             for k, v in output_json["output"].items():
-                output_json["characteristics"][k] = list({"text": v})
+                output_json["characteristics"][k] = [{"text": v}]
             if "taxId" in self.bs_json[n]:
                 output_json["taxId"] = self.bs_json[n]["taxId"]
 
