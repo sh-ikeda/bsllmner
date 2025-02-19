@@ -228,7 +228,7 @@ class BsReview(BsLlmProcess):
             })
 
             ## Input of BioSample json
-            messages[3]["content"] += json.dumps(bs, indent=2)
+            messages[-2]["content"] += json.dumps(bs, indent=2)
 
             ## Candidate evaluation
             ### Replace "{{cell_line}}" in the prompt with this cell line name
