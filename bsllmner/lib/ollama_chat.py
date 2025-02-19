@@ -17,6 +17,7 @@ class BsLlmProcess:
         self.prompts = self.load_prompt(prompt_filename)
         self.host_url = host_url
         self.client = ollama.Client(host=host_url)
+        self.is_input_ebi_format = True
         self.llm_input_json = self.construct_llm_input_json()
         return
 
@@ -58,12 +59,26 @@ class BsLlmProcess:
             filter_key_val = json.load(f)
 
         llm_input_json = []
-        for i in range(0, len(self.bs_json)):
-            sample = self.bs_json[i]
-            llm_input_json.append({})
-            for k, v in sample.items():
-                if k not in filter_key_val["filter_keys"]:
-                    llm_input_json[i][k] = v
+        if "characteristics" in self.bs_json[0] and isinstance(self.bs_json[0]["characteristics"], dict):
+            self.is_input_ebi_format = True
+        else:
+            self.is_input_ebi_format = False
+
+        if self.is_input_ebi_format:
+            for i in range(0, len(self.bs_json)):
+                sample = self.bs_json[i]
+                attrs = self.bs_json[i]["characteristics"]
+                llm_input_json.append({})
+                for k, v in attrs.items():
+                    if k not in filter_key_val["filter_keys"]:
+                        llm_input_json[i][k] = v[0]["text"]
+        else:
+            for i in range(0, len(self.bs_json)):
+                sample = self.bs_json[i]
+                llm_input_json.append({})
+                for k, v in sample.items():
+                    if k not in filter_key_val["filter_keys"]:
+                        llm_input_json[i][k] = v
 
         return llm_input_json
 
@@ -73,9 +88,34 @@ class BsNer(BsLlmProcess):
         super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
         return
 
+    def construct_output_json(self, n, res_text):
+        bs_id = self.bs_json[n]["accession"]
+        res_text_json = extract_last_json(res_text)
+        output_json = {}
+        output_json["accession"] = bs_id
+        if res_text_json == "":
+            output_json["output"] = "Error: no json"
+        else:
+            output_json["output"] = json.loads(res_text_json)
+        output_json["output_full"] = res_text
+
+        ## add "characteristics" and "taxId"
+        is_output_kv = False
+        if isinstance(output_json["output"], dict):
+            is_output_kv = True
+        if self.is_input_ebi_format and is_output_kv:
+            output_json["characteristics"] = {}
+            for k, v in output_json["output"].items():
+                output_json["characteristics"][k] = list({"text": v})
+            if "taxId" in self.bs_json[n]:
+                output_json["taxId"] = self.bs_json[n]["taxId"]
+
+        return output_json
+
     def ner(self, verbose=False, test=False):
         to = 10 if test else len(self.llm_input_json)
         base_messages = self.construct_messages()
+
         for i in range(0, to):
             input_bs = json.dumps(self.llm_input_json[i], indent=2)
             if i%10==0 and verbose and not test:
@@ -90,16 +130,8 @@ class BsNer(BsLlmProcess):
                 response = self.client.chat(model=self.model, messages=messages, options=options)
             res_text = response["message"]["content"]
 
-            bs_id = self.bs_json[i]["accession"]
-            res_text_json = extract_last_json(res_text)
-            # print(bs_id, res_text_json.replace("\n", "").replace("\t", " "), res_text.replace("\n", " ").replace("\t", " "), sep="\t")
-            output_json = {}
-            output_json["accession"] = bs_id
-            if res_text_json == "":
-                output_json["output"] = "Error: no json"
-            else:
-                output_json["output"] = json.loads(res_text_json)
-            output_json["output_full"] = res_text
+            output_json = self.construct_output_json(i, res_text)
+
             print(json.dumps(output_json, sort_keys=True))
         return
 
