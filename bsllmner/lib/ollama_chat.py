@@ -105,11 +105,13 @@ class BsNer(BsLlmProcess):
 
 
 class BsReview(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv):
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json):
         super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
         self.metasra_tsv = metasra_tsv
-        self.llmner_tsv = llmner_tsv
-        self.llmner_dict =  self.parse_llmner_tsv()
+        # self.llmner_tsv = llmner_tsv
+        # self.llmner_dict =  self.parse_llmner_tsv()
+        self.llmner_json = llmner_json
+        self.llmner_dict =  self.create_llmner_dict()
         self.bs_cvcl_cands = self.collect_bs_cvcl_cands()
 
     def collect_bs_cvcl_cands(self):
@@ -142,7 +144,18 @@ class BsReview(BsLlmProcess):
                     extracted_json = spline[1]
                 llmner_dict[bs_id] = {
                     "extracted_json": json.loads(extracted_json),
-                    "full_output": spline[2].replace("  ", "\n ")
+                    "output_full": spline[2].replace("  ", "\n ")
+                }
+        return llmner_dict
+
+    def create_llmner_dict(self):
+        llmner_dict = {}
+        with open(self.llmner_json) as f:
+            for line in f:
+                sample = json.loads(line)
+                llmner_dict[sample["accession"]] = {
+                    "extracted_json": sample["output"],
+                    "output_full": sample["output_full"]
                 }
         return llmner_dict
 
@@ -211,7 +224,7 @@ class BsReview(BsLlmProcess):
             ## Output from LLM in extraction
             messages.insert(-1, {
                 "role": "assistant",
-                "content": self.llmner_dict[bs_id]["full_output"]
+                "content": self.llmner_dict[bs_id]["output_full"]
             })
 
             ## Input of BioSample json
@@ -232,12 +245,18 @@ class BsReview(BsLlmProcess):
             else:
                 response = self.client.chat(model=self.model, messages=messages, options=options)
             res_text = response["message"]["content"]
-            ## markdown output
-            # print("# ", bs_id)
-            # print(res_text)
 
-            ## tsv output
+            ## json output
             res_text_json = extract_last_json(res_text)
-            print(bs_id, res_text_json.replace("\n", "").replace("\t", " "), res_text.replace("\n", " ").replace("\t", " "), sep="\t")
+            #print(bs_id, res_text_json.replace("\n", "").replace("\t", " "), res_text.replace("\n", " ").replace("\t", " "), sep="\t")
+            output_json = {}
+            output_json["accession"] = bs_id
+            if res_text_json == "":
+                output_json["output"] = "Error: no json"
+            else:
+                output_json["output"] = json.loads(res_text_json)
+            output_json["output_full"] = res_text
+            print(json.dumps(output_json, sort_keys=True))
+
 
         return
