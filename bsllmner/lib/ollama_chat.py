@@ -10,15 +10,14 @@ from .util import extract_last_json
 
 
 class BsLlmProcess:
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url=""):
-        self.bs_json = bs_json
+    def __init__(self, input_json_filename, model, prompt_filename, prompt_indices, host_url=""):
+        self.input_json_filename = input_json_filename
         self.model = model
         self.prompt_indices = prompt_indices
         self.prompts = self.load_prompt(prompt_filename)
         self.host_url = host_url
         self.client = ollama.Client(host=host_url)
         self.is_input_ebi_format = True
-        self.llm_input_json = self.construct_llm_input_json()
         return
 
     def load_prompt(self, prompt_filename):
@@ -51,7 +50,7 @@ class BsLlmProcess:
                 res_text_json = '{"error": "IndexError"}'
         return res_text_json.replace("\n", "")
 
-    def construct_llm_input_json(self):
+    def construct_llm_input_json(self, input_json):
         # convert input biosample json into minimized format for LLM input
         dirname = os.path.dirname(os.path.abspath(__file__))
         filter_filepath = dirname + "/../metadata/" + "filter_key_val_rules.json"
@@ -59,22 +58,22 @@ class BsLlmProcess:
             filter_key_val = json.load(f)
 
         llm_input_json = []
-        if "characteristics" in self.bs_json[0] and isinstance(self.bs_json[0]["characteristics"], dict):
+        if "characteristics" in input_json[0] and isinstance(input_json[0]["characteristics"], dict):
             self.is_input_ebi_format = True
         else:
             self.is_input_ebi_format = False
 
         if self.is_input_ebi_format:
-            for i in range(0, len(self.bs_json)):
-                sample = self.bs_json[i]
-                attrs = self.bs_json[i]["characteristics"]
+            for i in range(0, len(input_json)):
+                sample = input_json[i]
+                attrs = input_json[i]["characteristics"]
                 llm_input_json.append({})
                 for k, v in attrs.items():
                     if k not in filter_key_val["filter_keys"]:
                         llm_input_json[i][k] = v[0]["text"]
         else:
-            for i in range(0, len(self.bs_json)):
-                sample = self.bs_json[i]
+            for i in range(0, len(input_json)):
+                sample = input_json[i]
                 llm_input_json.append({})
                 for k, v in sample.items():
                     if k not in filter_key_val["filter_keys"]:
@@ -84,15 +83,17 @@ class BsLlmProcess:
 
 
 class BsNer(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url):
-        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
+    def __init__(self, input_json, model, prompt_filename, prompt_indices, host_url):
+        super().__init__(input_json, model, prompt_filename, prompt_indices, host_url)
+        self.llm_input_json = self.construct_llm_input_json(input_json)
         return
 
     def construct_output_json(self, n, res_text):
-        bs_id = self.bs_json[n]["accession"]
+        bs_id = self.input_json[n]["accession"]
         res_text_json = extract_last_json(res_text)
         output_json = {}
         output_json["accession"] = bs_id
+        output_json["input"] = self.input_json[n]
         if res_text_json == "":
             output_json["output"] = "Error: no json"
         else:
@@ -107,8 +108,8 @@ class BsNer(BsLlmProcess):
         if self.is_input_ebi_format and is_output_kv:
             for k, v in output_json["output"].items():
                 output_json["characteristics"][k] = [{"text": v}]
-            if "taxId" in self.bs_json[n]:
-                output_json["taxId"] = self.bs_json[n]["taxId"]
+            if "taxId" in self.input_json[n]:
+                output_json["taxId"] = self.input_json[n]["taxId"]
 
         return output_json
 
@@ -137,14 +138,16 @@ class BsNer(BsLlmProcess):
 
 
 class BsReview(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json):
-        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
+    def __init__(self, input_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json):
+        super().__init__(input_json, model, prompt_filename, prompt_indices, host_url)
         self.metasra_tsv = metasra_tsv
         # self.llmner_tsv = llmner_tsv
         # self.llmner_dict =  self.parse_llmner_tsv()
         self.llmner_json = llmner_json
         self.llmner_dict =  self.create_llmner_dict()
         self.bs_cvcl_cands = self.collect_bs_cvcl_cands()
+
+        self.llm_input_json = self.construct_llm_input_json(input_json)
 
     def collect_bs_cvcl_cands(self):
         bs_cvcl_count = defaultdict(int)
