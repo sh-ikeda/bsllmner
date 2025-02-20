@@ -92,3 +92,5 @@ The result is output as json-lines like below. The `output_full` attribute conta
 {"accession": "SAMN12541232", "output": {"cell_line_id": "CVCL:7735"}, "output_full": "Let's compare each term... Based on the confidence scores, I would output:\n\n{\"cell_line_id\": \"CVCL:7735\"}"}
 ```
 
+### Flowchart
+![Flowchart](img/bsllmner_flow.png)
