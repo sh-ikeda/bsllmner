@@ -75,15 +75,15 @@ The result is output as json-lines like below. The `output_full` attribute conta
 {"accession": "SAMD00235411", "characteristics": {"cell_line": ["text": "SKNO-1"]}, "output": {"cell_line": "SKNO-1"}, "output_full": "Let's break it down... Here is my output:\n\n{\"cell_line\": \"SKNO-1\"}", "taxId": 9606}
 ```
 `characteristics` and `taxId` are used in ontology-mapping with the [MetaSRA pipeline](https://github.com/sh-ikeda/MetaSRA-pipeline). (This output json-lines can be directly used as an input for the pipeline.)
-### Review mode
-As a result of the ontology mapping process, multiple ontology terms can be found as candidates to represent a single BioSample record. In the review mode, the program selects a term that is most likely to represent the sample among candidates.
+### Selection mode
+As a result of the ontology mapping process, multiple ontology terms can be found as candidates to represent a single BioSample record. In the selection mode, the program selects a term that is most likely to represent the sample among candidates.
 ```sh
-docker run --rm --network network_ollama -v `pwd`:/data/ shikeda/bsllmner:latest -m llama3:8b -i 5,2,6,7,14 -r /data/metasraout.tsv -l /data/llmout.jsonl -u http://ollama:11434 review /data/input.json
+docker run --rm --network network_ollama -v `pwd`:/data/ shikeda/bsllmner:latest -m llama3:8b -i 5,2,6,7,14 -r /data/metasraout.tsv -l /data/llmout.jsonl -u http://ollama:11434 select /data/input.json
 ```
-- `-i 5,2,6,7,14`: Specify the prompt indices. Each number corresponds to an index number of a prompt defined in `bsllmner/prompt/prompt.yaml`. The input to LLM is constructed as the array in this order. If you want to use a customized prompt, you can specify a yaml file with the `-p` option. The last index is assumed to describe the review task. The rest ones are same as indices that were used in the extraction mode.
+- `-i 5,2,6,7,14`: Specify the prompt indices. Each number corresponds to an index number of a prompt defined in `bsllmner/prompt/prompt.yaml`. The input to LLM is constructed as the array in this order. If you want to use a customized prompt, you can specify a yaml file with the `-p` option. The last prompt is assumed to describe the selection task. The rest ones are same as indices that were used in the extraction mode.
 - `-r /data/metasraout.tsv`: Specify TSV file output by MetaSRA
 - `-l /data/llmout.jsonl`: Specify json-lines file output by the extraction mode of `bsllmner`
-- `review`: Review mode
+- `select`: Selection mode
 - `/data/input.json`: input json (the same file as the input of the extraction mode)
 
 The result is output as json-lines like below. The `output_full` attribute contains the raw output of LLM for the sample. The conclusion of LLM is assumed to be JSON format and is output as the `output` value.

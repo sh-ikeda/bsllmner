@@ -136,7 +136,7 @@ class BsNer(BsLlmProcess):
         return
 
 
-class BsReview(BsLlmProcess):
+class BsSelect(BsLlmProcess):
     def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json):
         super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
         self.metasra_tsv = metasra_tsv
@@ -243,9 +243,9 @@ class BsReview(BsLlmProcess):
                     reformatted_dict["cell line type"].append(subset)
         return reformatted_dict
 
-    def review(self, verbose=False, test=False):
+    def select(self, verbose=False, test=False):
         base_messages = self.construct_messages()
-        print_time("Total samples to review: " + str(len(self.bs_cvcl_cands)))
+        print_time("Total samples for selection: " + str(len(self.bs_cvcl_cands)))
 
         for bs in self.bs_json:
             bs_id = bs["accession"]

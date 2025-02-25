@@ -5,10 +5,10 @@ from .lib import ollama_chat
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=["extract", "review"])
+    parser.add_argument('mode', choices=["extract", "select"])
     parser.add_argument('input_filename', help='BioSample JSON file')
-    parser.add_argument('-r', '--metasra_tsv', help='MetaSRA output tsv file. Required for review mode.')
-    parser.add_argument('-l', '--llmner_tsv', help='Extraction output tsv file. Required for review mode.')
+    parser.add_argument('-r', '--metasra_tsv', help='MetaSRA output tsv file. Required for selection mode.')
+    parser.add_argument('-l', '--llmner_tsv', help='Extraction output tsv file. Required for selection mode.')
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-t', '--test', action='store_true')
     parser.add_argument('-m', '--model')
@@ -32,9 +32,9 @@ def main():
     if mode == "extract":
         bsner = ollama_chat.BsNer(input_json, model, prompt_filename, prompt_indices, host_url)
         bsner.ner(verbose, test)
-    elif mode == "review":
-        bsreview = ollama_chat.BsReview(input_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv)
-        bsreview.review(verbose, test)
+    elif mode == "select":
+        bsselect = ollama_chat.BsSelect(input_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv)
+        bsselect.select(verbose, test)
     util.print_time()
     return
 
