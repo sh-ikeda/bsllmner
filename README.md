@@ -68,8 +68,11 @@ Also, the list of json output by the EBI BioSamples API ([example](https://www.e
   }
 ]
 ```
+Each output file of the API includes a single object. The `jq` command can be used to merge the files like: `jq -s '.' *json`.  
 
-The result is output as json-lines like below. The `output_full` attribute contains the raw output of LLM for the sample. The conclusion of LLM is assumed to be JSON format and is output as the `output` value.
+For details of the EBI BioSamples API, please see the [document](https://www.ebi.ac.uk/biosamples/docs/references/api).  
+
+The result of the extraction mode is output as json-lines like below. The `output_full` attribute contains the raw output of LLM for the sample. The conclusion of LLM is assumed to be JSON format and is output as the `output` value.
 ```json
 {"accession": "SAMD00123367", "characteristics": {"cell_line": ["text": "H1299"]}, "output": {"cell_line": "H1299"}, "output_full": "Let's break it down... Therefore, my output will be:\n\n{\"cell_line\": \"H1299\"}", "taxId": 9606}
 {"accession": "SAMD00235411", "characteristics": {"cell_line": ["text": "SKNO-1"]}, "output": {"cell_line": "SKNO-1"}, "output_full": "Let's break it down... Here is my output:\n\n{\"cell_line\": \"SKNO-1\"}", "taxId": 9606}
