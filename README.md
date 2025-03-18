@@ -1,5 +1,6 @@
 # bsllmner
-Named Entity Recogniton (NER) of biological terms in BioSample records using LLMs
+## About
+This repository contains the code intended to use LLM to perform named entity recogniton (NER) of biological terms from BioSample records and to select appropriate ontology terms.
 
 ## Usage
 ### Setup ollama
@@ -97,3 +98,6 @@ The result is output as json-lines like below. The `output_full` attribute conta
 
 ### Flowchart
 ![Flowchart](img/bsllmner_flow.png)
+
+## Disclaimer
+This repository is released under the MIT License, except for the files in the `data` directory, which are example inputs and outputs and are licensed under CC0.
