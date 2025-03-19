@@ -1,121 +1,1504 @@
 [
   {
+    "name": "SAMD00123367",
     "accession": "SAMD00123367",
-    "cell line": "H1299",
-    "organism": "Homo sapiens",
-    "sample name": "ATAC-seq_H1299_48h_G11_GSK1210151A (Inhibitor_BET)_0.1",
-    "title": "ATAC-seq_H1299_48h_G11_GSK1210151A (Inhibitor_BET)_0.1"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2020-04-10T00:00:00Z",
+    "update": "2022-04-01T01:23:20.257Z",
+    "submitted": "2020-04-10T18:12:26.180Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMD00123367",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Suzuki Lab , Department of Computational Biology and Medical Sciences, Graduate School of Frontier Sciences, The University of Tokyo"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2020-04-10T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2020-04-09T18:31:24Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "DRS136282"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "DRS136282"
+        }
+      ],
+      "cell line": [
+        {
+          "text": "H1299",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0003043"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "sample name": [
+        {
+          "text": "ATAC-seq_H1299_48h_G11_GSK1210151A (Inhibitor_BET)_0.1",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "ATAC-seq_H1299_48h_G11_GSK1210151A (Inhibitor_BET)_0.1"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/data/view/SAMD00123367",
+        "duo": []
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2020-04-10T18:12:26.180Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00123367"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00123367{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00123367/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00123367/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMD00123367"
+      }
+    }
   },
   {
+    "name": "SAMD00235411",
     "accession": "SAMD00235411",
-    "cell line": "SKNO-1",
-    "organism": "Homo sapiens",
-    "phenotype": "shRNA_2 against human KDM4B",
-    "sample name": "SKNO1 4B sh2",
-    "title": "ATAC-seq 4B sh2"
+    "sraAccession": "DRS242526",
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2022-06-02T00:00:00Z",
+    "update": "2024-06-02T02:19:12.317Z",
+    "submitted": "2022-06-02T12:05:29.100Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMD00235411",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Radiation Research Center for Frontier Science Facilities for Gene Technology, Research Institute for Radiation Biology and Medicine, Hiroshima University"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2022-06-02T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2024-05-26T04:52:37.500Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "DRS242526"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "DRS242526"
+        }
+      ],
+      "biomaterial provider": [
+        {
+          "text": "JCRB Cell Bank",
+          "tag": "attribute"
+        }
+      ],
+      "cell line": [
+        {
+          "text": "SKNO-1",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "phenotype": [
+        {
+          "text": "shRNA_2 against human KDM4B",
+          "tag": "attribute"
+        }
+      ],
+      "sample name": [
+        {
+          "text": "SKNO1 4B sh2",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "ATAC-seq 4B sh2"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMD00235411",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2022-06-02T12:05:29.100Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00235411"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00235411{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00235411/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00235411/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMD00235411"
+      }
+    }
   },
   {
+    "name": "SAMD00316482",
     "accession": "SAMD00316482",
-    "cell line": "MDA-MB-453",
-    "organism": "Homo sapiens",
-    "sample name": "ATAC_11-19_no_37",
-    "title": "MB453_exp_ERa-E380Q_ATAC_11-19_no_37"
+    "sraAccession": "DRS296884",
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2023-04-21T00:00:00Z",
+    "update": "2024-06-04T13:18:47.020Z",
+    "submitted": "2023-04-21T12:06:08.450Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMD00316482",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Cancer Epigenomics Cancer Institute, Japanese Foundation of Cancer Research"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2023-04-21T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2024-05-26T07:36:25.190Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "DRS296884"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "DRS296884"
+        }
+      ],
+      "biomaterial provider": [
+        {
+          "text": "Cancer Epigenomics, Cancer Institute of JFCR",
+          "tag": "attribute"
+        }
+      ],
+      "cell line": [
+        {
+          "text": "MDA-MB-453",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "sample name": [
+        {
+          "text": "ATAC_11-19_no_37",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "MB453_exp_ERa-E380Q_ATAC_11-19_no_37"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMD00316482",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2023-04-21T12:06:08.450Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00316482"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00316482{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00316482/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00316482/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMD00316482"
+      }
+    }
   },
   {
+    "name": "SAMD00324177",
     "accession": "SAMD00324177",
-    "cell_line": "NCI-H2122",
-    "organism": "Homo sapiens",
-    "sample_name": "H2122 PEM 3",
-    "title": "NCI-H2122 cells treated with 500nM pemetrexed for 72h 3"
+    "sraAccession": "DRS305450",
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2023-05-19T00:00:00Z",
+    "update": "2024-05-27T15:59:25.974Z",
+    "submitted": "2023-05-19T13:34:24.797Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMD00324177",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Japanese foundation for cancer research, Cancer Institute"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2023-05-19T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2024-05-19T07:51:44.453Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "DRS305450"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "DRS305450"
+        }
+      ],
+      "biomaterial_provider": [
+        {
+          "text": "Shunsuke Kitajima",
+          "tag": "attribute"
+        }
+      ],
+      "cell_line": [
+        {
+          "text": "NCI-H2122",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "sample_name": [
+        {
+          "text": "H2122 PEM 3",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "NCI-H2122 cells treated with 500nM pemetrexed for 72h 3"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMD00324177",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2023-05-19T13:34:24.797Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00324177"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00324177{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00324177/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00324177/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMD00324177"
+      }
+    }
   },
   {
+    "name": "SAMD00596646",
     "accession": "SAMD00596646",
-    "age": "neonate",
-    "cell_line": "HFF-1",
-    "cell_subtype": "rep_1",
-    "cell_type": "fibroblast",
-    "collection_date": "missing",
-    "description": "ATACseq collected after 48 h stimulation",
-    "geo_loc_name": "missing",
-    "isolate": "normal human foreskin pooled from two individuals.",
-    "organism": "Homo sapiens",
-    "sample_name": "ATAC_HFF_PDL24_CON_1",
-    "sample_type": "PDL24",
-    "sex": "male",
-    "tissue": "foreskin",
-    "title": "ATAC_PDL24_CON_1",
-    "treatment": "2%FBS DMEM"
+    "sraAccession": "DRS313712",
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2023-06-30T00:00:00Z",
+    "update": "2024-06-04T16:45:04.061Z",
+    "submitted": "2023-06-30T15:06:27.950Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMD00596646",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Osaka University, Institute for Protein Research"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2023-06-30T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2024-05-26T15:32:51.190Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "DRS313712"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Human"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Human.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "DRS313712"
+        }
+      ],
+      "age": [
+        {
+          "text": "neonate",
+          "tag": "attribute"
+        }
+      ],
+      "biomaterial_provider": [
+        {
+          "text": "ATCC",
+          "tag": "attribute"
+        }
+      ],
+      "cell_line": [
+        {
+          "text": "HFF-1",
+          "tag": "attribute"
+        }
+      ],
+      "cell_subtype": [
+        {
+          "text": "rep_1",
+          "tag": "attribute"
+        }
+      ],
+      "cell_type": [
+        {
+          "text": "fibroblast",
+          "tag": "attribute"
+        }
+      ],
+      "collection_date": [
+        {
+          "text": "missing",
+          "tag": "attribute"
+        }
+      ],
+      "description": [
+        {
+          "text": "ATACseq collected after 48 h stimulation"
+        }
+      ],
+      "geo_loc_name": [
+        {
+          "text": "missing",
+          "tag": "attribute"
+        }
+      ],
+      "isolate": [
+        {
+          "text": "normal human foreskin pooled from two individuals.",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "sample_name": [
+        {
+          "text": "ATAC_HFF_PDL24_CON_1",
+          "tag": "attribute"
+        }
+      ],
+      "sample_type": [
+        {
+          "text": "PDL24",
+          "tag": "attribute"
+        }
+      ],
+      "sex": [
+        {
+          "text": "male",
+          "tag": "attribute"
+        }
+      ],
+      "tissue": [
+        {
+          "text": "foreskin",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "ATAC_PDL24_CON_1"
+        }
+      ],
+      "treatment": [
+        {
+          "text": "2%FBS DMEM",
+          "tag": "attribute"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMD00596646",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2023-06-30T15:06:27.950Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00596646"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00596646{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00596646/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMD00596646/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMD00596646"
+      }
+    }
   },
   {
+    "name": "76585bf0-2c8a-11e6-ba59-68b599768938",
     "accession": "SAMEA4028888",
-    "ArrayExpress-Species": "Homo sapiens",
-    "common name": "human",
-    "organism": "Homo sapiens",
-    "sample description": "ATAC-seq library preparation from B-lymphoblastoids",
-    "scientific_name": "Homo sapiens",
-    "title": "LCL-ATAC6437612"
+    "sraAccession": "ERS1199998",
+    "webinSubmissionAccountId": "Webin-2",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2016-09-26T11:40:29Z",
+    "update": "2024-02-02T06:26:53.457Z",
+    "submitted": "2016-06-08T13:19:45Z",
+    "characteristics": {
+      "ArrayExpress-Species": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "ENA-CHECKLIST": [
+        {
+          "text": "ERC000011",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-FIRST-PUBLIC": [
+        {
+          "text": "2016-09-26T11:40:29Z",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-LAST-UPDATE": [
+        {
+          "text": "2016-06-08T13:19:45Z",
+          "tag": "attribute"
+        }
+      ],
+      "External Id": [
+        {
+          "text": "SAMEA4028888",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "SC"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2016-09-26T11:40:29Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2016-06-08T13:19:45Z"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "public"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "ERS1199998"
+        }
+      ],
+      "Submitter Id": [
+        {
+          "text": "76585bf0-2c8a-11e6-ba59-68b599768938",
+          "tag": "Namespace:SC"
+        }
+      ],
+      "common name": [
+        {
+          "text": "human",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "sample description": [
+        {
+          "text": "ATAC-seq library preparation from B-lymphoblastoids",
+          "tag": "attribute"
+        }
+      ],
+      "scientific_name": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "title": [
+        {
+          "text": "LCL-ATAC6437612"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMEA4028888",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2018-12-07T06:21:13.788Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4028888"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4028888{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4028888/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4028888/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA4028888"
+      }
+    }
   },
   {
+    "name": "E-MTAB-6931:Het1A-GATA6_4d_rep1",
     "accession": "SAMEA4753711",
-    "broker name": "ArrayExpress",
-    "cell line": "Het1A",
-    "cell type": "epithelial cell",
-    "common name": "human",
-    "description": "Protocols: The cells were generated by infecting cells with 2nd generation lentiviruses. The genes are under Tet-on control. 2d and 4d indicates either doxycycline induction for 2 or 4 days. Het1A, Het1A-HNF4A and Het1A-GATA6 cells were cultured in DMEM (+10% FBS and 1% PenStrep) with 100ng/mL doxycycline for 2 or 4 days. Cells were trypsinised and counted. 50000 cells were taken forward for Tn5 reaction. 50000 cells were lysed in ATAC lysis buffer and Tn5 reactions were performed as described in Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position. 2013. Jason D. Buenrostro, Paul G. Giresi, Lisa C. Zaba, Howard Y. Chang and William J. Greenleaf. doi:10.1038/nmeth.2688 Libraries were constructed by amplifying transposed DNA with Illumina Nextera adapters.",
-    "disease": "normal",
-    "genotype": "GATA6-tet-on",
-    "organism": "Homo sapiens",
-    "organism part": "esophagus",
-    "phenotype": "doxycyclin mediated overexpression of GATA6",
-    "scientific_name": "Homo sapiens",
-    "title": "Het1A-GATA6_4d_rep1"
+    "sraAccession": "ERS2573810",
+    "webinSubmissionAccountId": "Webin-24",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2018-08-30T17:02:49Z",
+    "update": "2024-02-06T15:46:25.365Z",
+    "submitted": "2018-06-22T14:00:08Z",
+    "characteristics": {
+      "ENA-CHECKLIST": [
+        {
+          "text": "ERC000011",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-FIRST-PUBLIC": [
+        {
+          "text": "2018-08-30T17:02:49Z",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-LAST-UPDATE": [
+        {
+          "text": "2018-06-22T14:00:08Z",
+          "tag": "attribute"
+        }
+      ],
+      "External Id": [
+        {
+          "text": "SAMEA4753711",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "UOM"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2018-08-30T17:02:49Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2018-06-22T14:00:08Z"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "public"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "ERS2573810"
+        }
+      ],
+      "Submitter Id": [
+        {
+          "text": "E-MTAB-6931:Het1A-GATA6_4d_rep1",
+          "tag": "Namespace:UOM"
+        }
+      ],
+      "broker name": [
+        {
+          "text": "ArrayExpress",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0009737"
+          ]
+        }
+      ],
+      "cell line": [
+        {
+          "text": "Het1A",
+          "tag": "attribute"
+        }
+      ],
+      "cell type": [
+        {
+          "text": "epithelial cell",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000066"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "common name": [
+        {
+          "text": "human",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "description": [
+        {
+          "text": "Protocols: The cells were generated by infecting cells with 2nd generation lentiviruses. The genes are under Tet-on control. 2d and 4d indicates either doxycycline induction for 2 or 4 days. Het1A, Het1A-HNF4A and Het1A-GATA6 cells were cultured in DMEM (+10% FBS and 1% PenStrep) with 100ng/mL doxycycline for 2 or 4 days. Cells were trypsinised and counted. 50000 cells were taken forward for Tn5 reaction. 50000 cells were lysed in ATAC lysis buffer and Tn5 reactions were performed as described in Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position. 2013. Jason D. Buenrostro, Paul G. Giresi, Lisa C. Zaba, Howard Y. Chang and William J. Greenleaf. doi:10.1038/nmeth.2688 Libraries were constructed by amplifying transposed DNA with Illumina Nextera adapters."
+        }
+      ],
+      "disease": [
+        {
+          "text": "normal",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/PATO_0000461"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "genotype": [
+        {
+          "text": "GATA6-tet-on",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        },
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism part": [
+        {
+          "text": "esophagus",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/UBERON_0001043"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "phenotype": [
+        {
+          "text": "doxycyclin mediated overexpression of GATA6",
+          "tag": "attribute"
+        }
+      ],
+      "scientific_name": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "title": [
+        {
+          "text": "Het1A-GATA6_4d_rep1"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMEA4753711",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2019-03-30T05:11:40.539Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4753711"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4753711{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4753711/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4753711/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA4753711"
+      }
+    }
   },
   {
+    "name": "E-MTAB-7035:L3.6pl_ATAC_C2",
     "accession": "SAMEA4799826",
-    "broker name": "ArrayExpress",
-    "cell line": "L3.6pl",
-    "cell type": "epithelial cell",
-    "common name": "human",
-    "description": "Protocols: ATAC was performed following the protocol of Buenrostro et al. Briefly, 50,000 L3.6pl cells were trypsinized and washed twice with cold PBS. Then cells were re-suspended in lysis buffer (10mM Tris-HCl pH 7.5, 10mM NaCl, 3mM MgCl2, 0.1% IGEPAL CA-630) and incubated for 15 minutes at a rotating wheel at 4ºC followed by centrifugation and in re-suspended in 50 µl of transposition mix composed of 2.5µl of TDE1 (Nextera Tn5 Transposase), 25 µl TD (2x reaction buffer) in nuclease free water (Nextera DNA Library Prep Kit, FC-121-1030, Illumina). Then it was incubated at 37 degrees for 30 minutes. MinElute PCR Purification kit (Qiagen) was used for DNA extraction following the instructions of the manufacturer. ATAC libraries were made using the Nextera DNA Library Prep Kit according to Buenrostro et al. The libraries were amplified for 15 cycles in total of: 98ºC for 10 seconds, 63ºC for 30 seconds, and 72ºC for 60 seconds.",
-    "disease": "pancreatic adenosquamous carcinoma",
-    "metastatic site": "celiac lymph node",
-    "organism": "Homo sapiens",
-    "organism part": "pancreas",
-    "scientific_name": "Homo sapiens",
-    "title": "L3.6pl_ATAC_C2"
+    "sraAccession": "ERS2619744",
+    "webinSubmissionAccountId": "Webin-24",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2018-12-18T17:02:52Z",
+    "update": "2024-02-06T16:07:46.238Z",
+    "submitted": "2018-07-20T14:53:24Z",
+    "characteristics": {
+      "ENA-CHECKLIST": [
+        {
+          "text": "ERC000011",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-FIRST-PUBLIC": [
+        {
+          "text": "2018-12-18T17:02:52Z",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-LAST-UPDATE": [
+        {
+          "text": "2018-07-20T14:53:24Z",
+          "tag": "attribute"
+        }
+      ],
+      "External Id": [
+        {
+          "text": "SAMEA4799826",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Section of Tumor Epigenetics, Department of General, Visceral and Pediatric Surgery, University Medical Center Gottingen, 37075 Gottingen, Germany"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2018-12-18T17:02:52Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2018-07-20T14:53:24Z"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "public"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "ERS2619744"
+        }
+      ],
+      "Submitter Id": [
+        {
+          "text": "E-MTAB-7035:L3.6pl_ATAC_C2",
+          "tag": "Namespace:Section of Tumor Epigenetics, Department of General, Visceral and Pediatric Surgery, University Medical Center Gottingen, 37075 Gottingen, Germany"
+        }
+      ],
+      "broker name": [
+        {
+          "text": "ArrayExpress",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0009737"
+          ]
+        }
+      ],
+      "cell line": [
+        {
+          "text": "L3.6pl",
+          "tag": "attribute"
+        }
+      ],
+      "cell type": [
+        {
+          "text": "epithelial cell",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000066"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "common name": [
+        {
+          "text": "human",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "description": [
+        {
+          "text": "Protocols: ATAC was performed following the protocol of Buenrostro et al. Briefly, 50,000 L3.6pl cells were trypsinized and washed twice with cold PBS. Then cells were re-suspended in lysis buffer (10mM Tris-HCl pH 7.5, 10mM NaCl, 3mM MgCl2, 0.1% IGEPAL CA-630) and incubated for 15 minutes at a rotating wheel at 4ºC followed by centrifugation and in re-suspended in 50 µl of transposition mix composed of 2.5µl of TDE1 (Nextera Tn5 Transposase), 25 µl TD (2x reaction buffer) in nuclease free water (Nextera DNA Library Prep Kit, FC-121-1030, Illumina). Then it was incubated at 37 degrees for 30 minutes. MinElute PCR Purification kit (Qiagen) was used for DNA extraction following the instructions of the manufacturer. ATAC libraries were made using the Nextera DNA Library Prep Kit according to Buenrostro et al. The libraries were amplified for 15 cycles in total of: 98ºC for 10 seconds, 63ºC for 30 seconds, and 72ºC for 60 seconds."
+        }
+      ],
+      "disease": [
+        {
+          "text": "pancreatic adenosquamous carcinoma",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0006732"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "metastatic site": [
+        {
+          "text": "celiac lymph node",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/UBERON_0002508"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        },
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism part": [
+        {
+          "text": "pancreas",
+          "tag": "attribute"
+        }
+      ],
+      "scientific_name": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "title": [
+        {
+          "text": "L3.6pl_ATAC_C2"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMEA4799826",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2019-03-30T05:21:04.632Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4799826"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4799826{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4799826/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4799826/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA4799826"
+      }
+    }
   },
   {
+    "name": "E-MTAB-67141538747278:human_skin_fibr_229",
     "accession": "SAMEA4957855",
-    "broker name": "ArrayExpress",
-    "cell type": "fibroblast",
-    "common name": "human",
-    "description": "Protocols: The spleen from a C57BL/6Jax mouse was mashed by a 2-ml syringe plunger through a 70 μm cell strainer (Fisher Scientific 10788201) into 30 ml 1X DPBS (ThermoFisher 14190169) supplied with 2 mM EDTA and 0.5% (w/v) BSA (Sigma A9418). Cells were centrifuged down, supernatant was removed, and the cell pellet was briefly vortexed. 5 ml 1X RBC lysis buffer (ThermoFisher 00-4300-54) was used to resuspend the cell pellet, and the cell suspension was vortexed again, and left on bench for 5 minutes to lyse red blood cells. Then 45 ml 1X DPBS was added, and cells were centrifuged down. 30 ml 1X DPBS were used to resuspend the cell pellet. The cell suspension was passed through a Miltenyi 30 μm Pre-Separation Filter (Miltenyi 130-041-407), and the cell number was determined using C-chip counting chamber (VWR DHC-N01). All centrifugations were done at 500 g, 4 °C, 5 minutes. After tagmentation, DAPI was added at a final concentration of 1 ug/ml. Then DAPI positive nuclei were sorted into 384-well plate using BD-INFLUX sorter. The nuclei sorting was performed at the Flow Cytometry facility at the Wellcome Trust Sanger Institute. Nuclei prepration and ATAC-seq procedure are performed simultaneously, i.e. Fast-ATAC protocol was used (Corces et al. Nature Genetics, 48, 1193-1203, 2016). Briefly, 50,000 cells were pelleted down at 500 g, 4 degree for 5 minutes. Then cell pellet was resuspended in 50 ul tagmentation mix containing 33 mM Tris-acetate, pH7.8, 66 mM potassium acetate, 10 mM magnesium acetate, 16% (v/v) dimethylformamide, 0.01% digitonin, 5 ul Tn5 transposes (Nextera kit, Illumina Cat No. FC-121-1030). The tagmentation reaction was put on a thermomixer, with 37 degree for 30 minutes. Then reaction was stopped by adding 50 ul 20 mM EDTA pH 8.0. After tagmentation, DAPI was added at a final concentration of 1 ug/ml. Then DAPI positive nuclei were sorted into 384-well plate using BD-INFLUX sorter. The nuclei sorting was performed at the Flow Cytometry facility at the Wellcome Trust Sanger Institute. DNA was purified first by Qiagen minElute PCR purification kit according to the manufacturer's instruction, then by AmupureXP beads with 0.5X upper cutoff and a 1.2X lower cutoff according to manufacturer's instruction. Libraries were constructed in the Illumina Nextera DNA Library preparation kit.",
-    "individual": "human 1",
-    "organism": "Homo sapiens",
-    "organism part": "skin",
-    "post analysis well quality": "pass",
-    "scientific_name": "Homo sapiens",
-    "sex": "female",
-    "title": "human_skin_fibr_229"
-  },
-    {
-    "accession": "SAMN08200557",
-    "cell type": "surface ectoderm progenitor cells",
-    "genotype/variation": "TetO-TFAP2C",
-    "organism": "Homo sapiens",
-    "originating cell line": "H9",
-    "source_name": "early surface ectoderm differentiation from hESC",
-    "title": "AP2Cd7On_2",
-    "treatment and stage": "Dox+ for 7 days"
+    "sraAccession": "ERS2776435",
+    "webinSubmissionAccountId": "Webin-24",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2018-10-10T17:03:13Z",
+    "update": "2024-02-06T17:07:08.113Z",
+    "submitted": "2018-10-05T14:52:06Z",
+    "characteristics": {
+      "ENA-CHECKLIST": [
+        {
+          "text": "ERC000011",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-FIRST-PUBLIC": [
+        {
+          "text": "2018-10-10T17:03:13Z",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-LAST-UPDATE": [
+        {
+          "text": "2018-10-05T14:52:06Z",
+          "tag": "attribute"
+        }
+      ],
+      "External Id": [
+        {
+          "text": "SAMEA4957855",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "WELLCOME TRUST SANGER INSTITUTE"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2018-10-10T17:03:13Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2018-10-05T14:52:06Z"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "public"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "ERS2776435"
+        }
+      ],
+      "Submitter Id": [
+        {
+          "text": "E-MTAB-67141538747278:human_skin_fibr_229",
+          "tag": "Namespace:WELLCOME TRUST SANGER INSTITUTE"
+        }
+      ],
+      "broker name": [
+        {
+          "text": "ArrayExpress",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0009737"
+          ]
+        }
+      ],
+      "cell type": [
+        {
+          "text": "fibroblast",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000057"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "common name": [
+        {
+          "text": "human",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "description": [
+        {
+          "text": "Protocols: The spleen from a C57BL/6Jax mouse was mashed by a 2-ml syringe plunger through a 70 μm cell strainer (Fisher Scientific 10788201) into 30 ml 1X DPBS (ThermoFisher 14190169) supplied with 2 mM EDTA and 0.5% (w/v) BSA (Sigma A9418). Cells were centrifuged down, supernatant was removed, and the cell pellet was briefly vortexed. 5 ml 1X RBC lysis buffer (ThermoFisher 00-4300-54) was used to resuspend the cell pellet, and the cell suspension was vortexed again, and left on bench for 5 minutes to lyse red blood cells. Then 45 ml 1X DPBS was added, and cells were centrifuged down. 30 ml 1X DPBS were used to resuspend the cell pellet. The cell suspension was passed through a Miltenyi 30 μm Pre-Separation Filter (Miltenyi 130-041-407), and the cell number was determined using C-chip counting chamber (VWR DHC-N01). All centrifugations were done at 500 g, 4 °C, 5 minutes. After tagmentation, DAPI was added at a final concentration of 1 ug/ml. Then DAPI positive nuclei were sorted into 384-well plate using BD-INFLUX sorter. The nuclei sorting was performed at the Flow Cytometry facility at the Wellcome Trust Sanger Institute. Nuclei prepration and ATAC-seq procedure are performed simultaneously, i.e. Fast-ATAC protocol was used (Corces et al. Nature Genetics, 48, 1193-1203, 2016). Briefly, 50,000 cells were pelleted down at 500 g, 4 degree for 5 minutes. Then cell pellet was resuspended in 50 ul tagmentation mix containing 33 mM Tris-acetate, pH7.8, 66 mM potassium acetate, 10 mM magnesium acetate, 16% (v/v) dimethylformamide, 0.01% digitonin, 5 ul Tn5 transposes (Nextera kit, Illumina Cat No. FC-121-1030). The tagmentation reaction was put on a thermomixer, with 37 degree for 30 minutes. Then reaction was stopped by adding 50 ul 20 mM EDTA pH 8.0. After tagmentation, DAPI was added at a final concentration of 1 ug/ml. Then DAPI positive nuclei were sorted into 384-well plate using BD-INFLUX sorter. The nuclei sorting was performed at the Flow Cytometry facility at the Wellcome Trust Sanger Institute. DNA was purified first by Qiagen minElute PCR purification kit according to the manufacturer's instruction, then by AmupureXP beads with 0.5X upper cutoff and a 1.2X lower cutoff according to manufacturer's instruction. Libraries were constructed in the Illumina Nextera DNA Library preparation kit."
+        }
+      ],
+      "individual": [
+        {
+          "text": "human 1",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        },
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism part": [
+        {
+          "text": "skin",
+          "tag": "attribute"
+        }
+      ],
+      "post analysis well quality": [
+        {
+          "text": "pass",
+          "tag": "attribute"
+        }
+      ],
+      "scientific_name": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "sex": [
+        {
+          "text": "female",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/PATO_0000383"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "human_skin_fibr_229"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMEA4957855",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2019-03-30T05:44:36.475Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4957855"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4957855{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4957855/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA4957855/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA4957855"
+      }
+    }
   },
   {
-    "accession": "SAMN12723276",
-    "cell line": "PC-3",
-    "cell type": "prostate cancer",
-    "chip antibody": "Rabbit polyclonal anti-Histone H3K27-ac Abcam ab4729",
-    "organism": "Homo sapiens",
-    "passages": "20-30",
-    "source_name": "prostate",
-    "title": "GDC-R_vehicle_H3K27ac_rep2"
+    "name": "KLF1-24_I16-1573-04-m4",
+    "accession": "SAMEA5424632",
+    "sraAccession": "ERS3229920",
+    "webinSubmissionAccountId": "Webin-51607",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2020-01-06T04:04:25Z",
+    "update": "2024-02-06T19:25:19.466Z",
+    "submitted": "2019-03-15T10:10:05Z",
+    "characteristics": {
+      "ENA-CHECKLIST": [
+        {
+          "text": "ERC000011",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-FIRST-PUBLIC": [
+        {
+          "text": "2020-01-06T04:04:25Z",
+          "tag": "attribute"
+        }
+      ],
+      "ENA-LAST-UPDATE": [
+        {
+          "text": "2019-03-15T10:10:05Z",
+          "tag": "attribute"
+        }
+      ],
+      "External Id": [
+        {
+          "text": "SAMEA5424632",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "ERASMUS MC"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2020-01-06T04:04:25Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2019-03-15T10:10:05Z"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "public"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "ERS3229920"
+        }
+      ],
+      "Submitter Id": [
+        {
+          "text": "KLF1-24_I16-1573-04-m4",
+          "tag": "Namespace:ERASMUS MC"
+        }
+      ],
+      "cell type": [
+        {
+          "text": "Erythroid progenitors",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000038"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "common name": [
+        {
+          "text": "human",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "description": [
+        {
+          "text": "KLF1 haploinsufficiency m4 proliferating erythroblasts ATAC-seq fastq files"
+        }
+      ],
+      "dev stage": [
+        {
+          "text": "Adult",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0001272"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "scientific_name": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            ""
+          ]
+        }
+      ],
+      "tissue type": [
+        {
+          "text": "Peripheral blood",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/UBERON_0000178"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "KLF1 haploinsufficiency m4 proliferating erythroblasts ATAC-seq"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMEA5424632",
+        "duo": []
+      }
+    ],
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2019-01-29T09:48:50.482Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA5424632"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA5424632{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA5424632/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA5424632/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA5424632"
+      }
+    }
   }
 ]
