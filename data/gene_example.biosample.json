@@ -1,50 +1,646 @@
 [
   {
+    "name": "GSM3185085",
     "accession": "SAMN09394385",
-    "cell line": "22RV-1",
-    "genotype/variation": "PTEN and BRG1 knockdown",
-    "organism": "Homo sapiens",
-    "source_name": "cell line",
-    "tissue": "prostate cancer",
-    "title": "PTEN_BRG1-KD_ATAC-Seq"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2019-01-15T00:00:00Z",
+    "update": "2022-03-30T19:31:20.274Z",
+    "submitted": "2018-06-11T14:56:25.130Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMN09394385",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Laboratory of Tumor Progression and Metastasis, Institute of Health Sciences, Shanghai Institute for Biological Sciences, Chinese Academy of Sciences"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2019-01-15T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2019-01-15T02:18:16.907Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "SRS3404197"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "SRS3404197"
+        }
+      ],
+      "cell line": [
+        {
+          "text": "22RV-1",
+          "tag": "attribute"
+        }
+      ],
+      "genotype/variation": [
+        {
+          "text": "PTEN and BRG1 knockdown",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "source_name": [
+        {
+          "text": "cell line",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000010"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "tissue": [
+        {
+          "text": "prostate cancer",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0001663"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "PTEN_BRG1-KD_ATAC-Seq"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/data/view/SAMN09394385",
+        "duo": []
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2018-06-11T14:56:25.130Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09394385"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09394385{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09394385/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09394385/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMN09394385"
+      }
+    }
   },
   {
+    "name": "GSM3187442",
     "accession": "SAMN09399522",
-    "organism": "Homo sapiens",
-    "population": "CD49d+_Band3-",
-    "source_name": "CD34+ hematopoietic cells",
-    "title": "Donor3_P5_Rep3_ATAC"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2019-03-31T00:00:00Z",
+    "update": "2022-03-30T19:33:38.483Z",
+    "submitted": "2018-06-12T11:16:06.920Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMN09399522",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Aryee, Broad Institute"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2019-03-31T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2019-03-31T01:30:43.153Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "SRS3408504"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "SRS3408504"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "population": [
+        {
+          "text": "CD49d+_Band3-",
+          "tag": "attribute"
+        }
+      ],
+      "source_name": [
+        {
+          "text": "CD34+ hematopoietic cells",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000037"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "Donor3_P5_Rep3_ATAC"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/data/view/SAMN09399522",
+        "duo": []
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2018-06-12T11:16:06.920Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09399522"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09399522{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09399522/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN09399522/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMN09399522"
+      }
+    }
   },
   {
+    "name": "GSM3713202",
     "accession": "SAMN11357744",
-    "donor id": "human donor Donor2-D13",
-    "genotype": "BAP1-/-",
-    "organism": "Homo sapiens",
-    "source_name": "BAP1-/- human organoids",
-    "tissue": "liver ductal organoids",
-    "title": "hLiverOrganoids-ATACseq-V1-p53BAP1KO-D13-PB2new-2"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2019-05-23T00:00:00Z",
+    "update": "2022-03-31T07:58:06.478Z",
+    "submitted": "2019-04-08T10:18:11.977Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMN11357744",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Molecular Biology, Radboud Institute for Molecular Life Sciences"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2019-05-23T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2019-05-23T01:57:23.520Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "SRS4596678"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "SRS4596678"
+        }
+      ],
+      "donor id": [
+        {
+          "text": "human donor Donor2-D13",
+          "tag": "attribute"
+        }
+      ],
+      "genotype": [
+        {
+          "text": "BAP1-/-",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "source_name": [
+        {
+          "text": "BAP1-/- human organoids",
+          "tag": "attribute"
+        }
+      ],
+      "tissue": [
+        {
+          "text": "liver ductal organoids",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "hLiverOrganoids-ATACseq-V1-p53BAP1KO-D13-PB2new-2"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/data/view/SAMN11357744",
+        "duo": []
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2019-04-08T10:18:11.977Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN11357744"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN11357744{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN11357744/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN11357744/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMN11357744"
+      }
+    }
   },
   {
+    "name": "GSM4781634",
     "accession": "SAMN16133304",
-    "cell line background": "HCT116",
-    "cell type": "colorectal carcinoma cell line",
-    "genotype/variation": "TP53-WT",
-    "morphology": "epithelial",
-    "organism": "Homo sapiens",
-    "source_name": "p53 WT 5-FU non treated",
-    "tissue source": "colon",
-    "title": "p53 WT 5-FU non treated rep1 [ATAC-seq]",
-    "treatment": "treated with 5-FU 0hr"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2021-02-11T00:00:00Z",
+    "update": "2022-04-01T11:34:33.544Z",
+    "submitted": "2020-09-15T09:41:11.110Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMN16133304",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Department of Environmental Medical Biology, Yonsei University College of Medicine"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2021-02-11T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2021-02-11T02:24:19.473Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "SRS7366770"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "SRS7366770"
+        }
+      ],
+      "cell line background": [
+        {
+          "text": "HCT116",
+          "ontologyTerms": [
+            "http://www.ebi.ac.uk/efo/EFO_0002824"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "cell type": [
+        {
+          "text": "colorectal carcinoma cell line",
+          "tag": "attribute"
+        }
+      ],
+      "genotype/variation": [
+        {
+          "text": "TP53-WT",
+          "tag": "attribute"
+        }
+      ],
+      "morphology": [
+        {
+          "text": "epithelial",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/CL_0000066"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "source_name": [
+        {
+          "text": "p53 WT 5-FU non treated",
+          "tag": "attribute"
+        }
+      ],
+      "tissue source": [
+        {
+          "text": "colon",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/UBERON_0001155"
+          ],
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "p53 WT 5-FU non treated rep1 [ATAC-seq]"
+        }
+      ],
+      "treatment": [
+        {
+          "text": "treated with 5-FU 0hr",
+          "tag": "attribute"
+        }
+      ]
+    },
+    "externalReferences": [
+      {
+        "url": "https://www.ebi.ac.uk/ena/browser/view/SAMN16133304",
+        "duo": []
+      },
+      {
+        "url": "https://www.ebi.ac.uk/ena/data/view/SAMN16133304",
+        "duo": []
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2020-09-15T09:41:11.110Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN16133304"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN16133304{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN16133304/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN16133304/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMN16133304"
+      }
+    }
   },
   {
+    "name": "GSM5656782",
     "accession": "SAMN22569472",
-    "Sex": "female",
-    "cell line": "RPE-1",
-    "cell type": "hTERT-immortalized retinal pigment epithelial cell line",
-    "genotype": "p53 KO",
-    "organism": "Homo sapiens",
-    "source_name": "Retina (female)",
-    "title": "RPE-1 p53KO + Reversine 2",
-    "treatment": "Reversine 0.5 uM 48 hours before splitting, long-term"
+    "domain": "self.BiosampleImportNCBI",
+    "taxId": 9606,
+    "status": "PUBLIC",
+    "release": "2023-03-13T00:00:00Z",
+    "update": "2023-05-18T19:13:44.317Z",
+    "submitted": "2021-10-26T11:59:02.850Z",
+    "characteristics": {
+      "External Id": [
+        {
+          "text": "SAMN22569472",
+          "tag": "Namespace:BioSample"
+        }
+      ],
+      "INSDC center name": [
+        {
+          "text": "Memorial Sloan Kettering Cancer Center"
+        }
+      ],
+      "INSDC first public": [
+        {
+          "text": "2023-03-13T00:00:00Z"
+        }
+      ],
+      "INSDC last update": [
+        {
+          "text": "2023-03-13T14:59:34.433Z"
+        }
+      ],
+      "INSDC secondary accession": [
+        {
+          "text": "SRS10722075"
+        }
+      ],
+      "INSDC status": [
+        {
+          "text": "live"
+        }
+      ],
+      "NCBI submission model": [
+        {
+          "text": "Generic"
+        }
+      ],
+      "NCBI submission package": [
+        {
+          "text": "Generic.1.0"
+        }
+      ],
+      "SRA accession": [
+        {
+          "text": "SRS10722075"
+        }
+      ],
+      "Sex": [
+        {
+          "text": "female",
+          "tag": "attribute"
+        }
+      ],
+      "cell line": [
+        {
+          "text": "RPE-1",
+          "tag": "attribute"
+        }
+      ],
+      "cell type": [
+        {
+          "text": "hTERT-immortalized retinal pigment epithelial cell line",
+          "tag": "attribute"
+        }
+      ],
+      "genotype": [
+        {
+          "text": "p53 KO",
+          "tag": "attribute"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Homo sapiens",
+          "ontologyTerms": [
+            "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+          ]
+        }
+      ],
+      "source_name": [
+        {
+          "text": "Retina (female)",
+          "tag": "attribute"
+        }
+      ],
+      "title": [
+        {
+          "text": "RPE-1 p53KO + Reversine 2"
+        }
+      ],
+      "treatment": [
+        {
+          "text": "Reversine 0.5 uM 48 hours before splitting, long-term",
+          "tag": "attribute"
+        }
+      ]
+    },
+    "submittedVia": "PIPELINE_IMPORT",
+    "create": "2021-10-26T11:59:02.850Z",
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN22569472"
+      },
+      "curationDomain": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN22569472{?curationdomain}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN22569472/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMN22569472/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMN22569472"
+      }
+    }
   }
 ]
