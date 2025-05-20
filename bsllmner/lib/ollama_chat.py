@@ -138,9 +138,10 @@ class BsNer(BsLlmProcess):
                     response = ollama.chat(model=self.model, messages=messages, options=options)
                 else:
                     response = self.client.chat(model=self.model, messages=messages, options=options)
+                res_text = response["message"]["content"]
             else:
                 response = self.client.chat.completions.create(model=self.model, messages=messages, temperature=0)
-            res_text = response["message"]["content"]
+                res_text = response.choices[0].message.content
 
             output_json = self.construct_output_json(i, res_text)
 
