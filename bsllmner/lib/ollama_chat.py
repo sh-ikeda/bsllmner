@@ -2,23 +2,32 @@ import ollama
 import json
 import re
 import os
+import sys
 import copy
 import yaml
 from collections import defaultdict
 from .util import print_time
 from .util import extract_last_json
+from openai import OpenAI
 
 
 class BsLlmProcess:
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url=""):
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url="", server="ollama"):
         self.bs_json = bs_json
         self.model = model
         self.prompt_indices = prompt_indices
         self.prompts = self.load_prompt(prompt_filename)
         self.host_url = host_url
-        self.client = ollama.Client(host=host_url)
         self.is_input_ebi_format = True
         self.llm_input_json = self.construct_llm_input_json()
+        self.server = server
+        if server == "ollama":
+            self.client = ollama.Client(host=host_url)
+        elif server == "vllm":
+            self.client = OpenAI(base_url=host_url, api_key="EMPTY")
+        else:
+            print("Error: Invalid server: ", server, file=sys.stderr)
+            exit(1)
         return
 
     def load_prompt(self, prompt_filename):
@@ -84,8 +93,8 @@ class BsLlmProcess:
 
 
 class BsNer(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url):
-        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, server):
+        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url, server)
         return
 
     def construct_output_json(self, n, res_text):
@@ -124,10 +133,13 @@ class BsNer(BsLlmProcess):
             messages = copy.deepcopy(base_messages)
             messages[-1]["content"] += input_bs
             options = {"temperature": 0}
-            if self.host_url == "":
-                response = ollama.chat(model=self.model, messages=messages, options=options)
+            if self.server == "ollama":
+                if self.host_url == "":
+                    response = ollama.chat(model=self.model, messages=messages, options=options)
+                else:
+                    response = self.client.chat(model=self.model, messages=messages, options=options)
             else:
-                response = self.client.chat(model=self.model, messages=messages, options=options)
+                response = self.client.chat.completions.create(model=self.model, messages=messages, temperature=0)
             res_text = response["message"]["content"]
 
             output_json = self.construct_output_json(i, res_text)
@@ -137,8 +149,8 @@ class BsNer(BsLlmProcess):
 
 
 class BsSelect(BsLlmProcess):
-    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json):
-        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url)
+    def __init__(self, bs_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_json, server):
+        super().__init__(bs_json, model, prompt_filename, prompt_indices, host_url, server)
         self.metasra_tsv = metasra_tsv
         # self.llmner_tsv = llmner_tsv
         # self.llmner_dict =  self.parse_llmner_tsv()

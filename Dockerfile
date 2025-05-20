@@ -1,6 +1,6 @@
 FROM python:3.10-alpine
 
-RUN pip3 install ollama pyyaml
+RUN pip3 install ollama pyyaml openai
 RUN apk update && \
     apk add git
 

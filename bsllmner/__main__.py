@@ -14,6 +14,7 @@ def main():
     parser.add_argument('-m', '--model')
     parser.add_argument('-p', '--prompt_filename', default="")
     parser.add_argument('-i', '--prompt_indices')
+    parser.add_argument('-e', '--server', default="ollama", choices=["ollama", "vllm"])
     parser.add_argument('-u', '--host_url', default="")
     args = parser.parse_args()
 
@@ -27,13 +28,14 @@ def main():
     prompt_filename = args.prompt_filename
     prompt_indices = args.prompt_indices.split(",")
     host_url = args.host_url
+    server = args.server
     util.print_time()
 
     if mode == "extract":
-        bsner = ollama_chat.BsNer(input_json, model, prompt_filename, prompt_indices, host_url)
+        bsner = ollama_chat.BsNer(input_json, model, prompt_filename, prompt_indices, host_url, server)
         bsner.ner(verbose, test)
     elif mode == "select":
-        bsselect = ollama_chat.BsSelect(input_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv)
+        bsselect = ollama_chat.BsSelect(input_json, model, prompt_filename, prompt_indices, host_url, metasra_tsv, llmner_tsv, server)
         bsselect.select(verbose, test)
     util.print_time()
     return
